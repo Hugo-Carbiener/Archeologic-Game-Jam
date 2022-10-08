@@ -57,7 +57,6 @@ public class StaminaModule : MonoBehaviour
      */
     private void ConsumeStamina()
     {
-        print(curStamina);
         curStamina-=1f;
         playerReferencesController.getUI().GetComponent<UiController>().UpdateStaminaBar(curStamina/maxStamina);
         if (curStamina <= 0)

@@ -39,9 +39,4 @@ public class AudioManager : MonoBehaviour
 
         instance.setParameterByName("Indices", indiceAmount);
     }
-
-    void Update()
-    {
-
-    }
 }
