@@ -26,7 +26,6 @@ public class PlayerAudio : MonoBehaviour
 
     public void SetNoFootsteps()
     {
-
         instance.setParameterByName("Run Pelo", 2);
     }
 }
