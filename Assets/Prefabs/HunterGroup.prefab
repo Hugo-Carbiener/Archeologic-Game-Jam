@@ -517,11 +517,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agents: []
-  rangeIndicator: {fileID: 0}
-  attackAreaRangeIndicator: {fileID: 0}
-  range: 0
-  minAttackAreaSize: 0
-  maxAttackAreaSize: 0
+  rangeIndicator: {fileID: 951684400030525285, guid: 5928dbaa4a2e6c1439b7ca11363382d4, type: 3}
+  attackAreaRangeIndicator: {fileID: 951684400030525285, guid: 5928dbaa4a2e6c1439b7ca11363382d4, type: 3}
+  range: 10
+  minAttackAreaSize: 1
+  maxAttackAreaSize: 5
   isInattackStance: 0
 --- !u!1 &5175411144036252509
 GameObject:
