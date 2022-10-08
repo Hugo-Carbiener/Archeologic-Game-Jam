@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Events;
 
 public enum movementStates
@@ -12,6 +13,7 @@ public enum movementStates
 public class GroupMovement : MonoBehaviour
 {
     [Header("Components")]
+    [SerializeField] private NavMeshAgent agent;
     private Camera cam;
 
     [Header("Variables")]
@@ -20,7 +22,7 @@ public class GroupMovement : MonoBehaviour
     [SerializeField] private float runSpeed;
     private float speed;
     private bool orderIsValid;
-    private Vector3 targetPosition;
+    private Vector3 leaderTargetPosition;
 
     [Header("States")]
     [SerializeField] private movementStates state;
@@ -28,10 +30,11 @@ public class GroupMovement : MonoBehaviour
 
     private void Awake()
     {
+        if (!agent) agent = GetComponent<NavMeshAgent>();
         cam = Camera.main;
         speed = walkSpeed;
         onMouseRightClick = new UnityEvent();
-        targetPosition = Vector3.zero;
+        leaderTargetPosition = Vector3.zero;
     }
 
     private void OnEnable()
@@ -62,8 +65,13 @@ public class GroupMovement : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit, 100))
         {
-            targetPosition = hit.point;
             orderIsValid = true;
+            
+            leaderTargetPosition = hit.point;
+            
+            // navmesh management
+            agent.ResetPath();
+            agent.SetDestination(leaderTargetPosition);
         }
 
         if (orderIsValid)
@@ -76,23 +84,23 @@ public class GroupMovement : MonoBehaviour
     private void OrderDistanceProcessing(Vector3 initialPosition)
     {
         // distance processing
-        float distance = Vector3.Distance(initialPosition, targetPosition);
+        float distance = Vector3.Distance(initialPosition, leaderTargetPosition);
         if ( distance >= runRange)
         {
-            Debug.Log("Cours + " + distance);
             state = movementStates.running;
             speed = runSpeed;
         } else
         {
-            Debug.Log("Marche + " + distance);
             state = movementStates.walking;
             speed = walkSpeed;
         }
+
+        agent.speed = speed;
     }
 
-    public Vector3 GetTargetPosition()
+    public Vector3 GetLeaderTargetPosition()
     {
-        return targetPosition;
+        return leaderTargetPosition;
     }
     public float GetSpeed()
     {

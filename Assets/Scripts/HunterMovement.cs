@@ -26,12 +26,13 @@ public class HunterMovement : MonoBehaviour
         if (groupMovementManager.OrderIsValid())
         {
             Vector3 targetPosition;
-            Vector3 offset = - groupMovementManager.transform.position + transform.position;
-            Vector3 groupTargetPosition = groupMovementManager.GetTargetPosition();
-            
+            Vector3 offset = transform.position - groupMovementManager.transform.position;
+            Vector3 groupTargetPosition = groupMovementManager.GetLeaderTargetPosition();
+
             targetPosition = groupTargetPosition + offset;
 
             agent.speed = groupMovementManager.GetSpeed();
+            agent.ResetPath();
             agent.SetDestination(targetPosition);
             
         }
