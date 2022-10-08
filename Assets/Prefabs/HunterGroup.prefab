@@ -1171,6 +1171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 5175411144036252510}
   attackStanceManager: {fileID: 8743345522613566569}
+  audio: {fileID: 0}
   walkSpeed: 5
   runRange: 10
   runSpeed: 10
@@ -1279,7 +1280,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fa73810cc8f35741abb7e51197a2f73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementManager: {fileID: 5175411144036252508}
   fmodMusicEvent:
     Guid:
       Data1: -1119096270

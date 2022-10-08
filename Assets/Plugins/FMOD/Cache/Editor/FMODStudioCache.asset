@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Renne_water/run
+  m_Name: parameter:/Renne_water/Run Deer
   m_EditorClassIdentifier: 
-  Name: run
+  Name: Run Deer
   StudioPath: 
   Min: 0
-  Max: 1
+  Max: 2
   Default: 0
   ID:
     data1: 2085954896
@@ -34,12 +34,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Renne_Dirt/run
+  m_Name: parameter:/Renne_Dirt/Run Deer
   m_EditorClassIdentifier: 
-  Name: run
+  Name: Run Deer
   StudioPath: 
   Min: 0
-  Max: 1
+  Max: 2
   Default: 0
   ID:
     data1: 2085954896
@@ -75,6 +75,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-5741195111808133971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Pelos_Dirt/Run Pelo
+  m_EditorClassIdentifier: 
+  Name: Run Pelo
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 1923129795
+    data2: 2005280820
+  Type: 1
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &-5663342082716693831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,12 +165,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Pelos_Water/run
+  m_Name: parameter:/Pelos_Water/Run Deer
   m_EditorClassIdentifier: 
-  Name: run
+  Name: Run Deer
   StudioPath: 
   Min: 0
-  Max: 1
+  Max: 2
   Default: 0
   ID:
     data1: 2085954896
@@ -170,10 +194,10 @@ MonoBehaviour:
   Path: Assets/AudioBuild/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638008647203787548
+  lastModified: 638008663462630192
   FileSizes:
   - Name: 
-    Value: 1238
+    Value: 1290
   Exists: 1
 --- !u!114 &-87007504465857385
 MonoBehaviour:
@@ -232,7 +256,7 @@ MonoBehaviour:
   - {fileID: 6815776304995427039}
   StringsBanks:
   - {fileID: -473139695186084043}
-  cacheTime: 638008647204202521
+  cacheTime: 638008663462880812
   cacheVersion: 131593
 --- !u!114 &1259697596895605562
 MonoBehaviour:
@@ -345,30 +369,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 58684
---- !u!114 &4755216358207222937
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Pelos_Dirt/run
-  m_EditorClassIdentifier: 
-  Name: run
-  StudioPath: 
-  Min: 0
-  Max: 1
-  Default: 0
-  ID:
-    data1: 2085954896
-    data2: 1521506791
-  Type: 1
-  IsGlobal: 0
-  Labels: []
-  Exists: 1
 --- !u!114 &4955700564848725570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,7 +408,7 @@ MonoBehaviour:
   Path: Assets/AudioBuild/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638008647204202521
+  lastModified: 638008663462880812
   FileSizes: []
   Exists: 1
 --- !u!114 &8973036416353283455
@@ -435,7 +435,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 4755216358207222937}
+  - {fileID: -5741195111808133971}
   MinDistance: 1
   MaxDistance: 20
-  Length: 1625
+  Length: 1937

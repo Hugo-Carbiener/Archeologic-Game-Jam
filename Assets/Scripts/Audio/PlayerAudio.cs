@@ -16,16 +16,17 @@ public class PlayerAudio : MonoBehaviour
 
     public void SetWalkAudio()
     {
-        instance.setParameterByName("run", 0);
+        instance.setParameterByName("Run Pelo", 0);
     }
 
     public void SetRunAudio()
     {
-        instance.setParameterByName("run", 1);
+        instance.setParameterByName("Run Pelo", 1);
     }
 
     public void SetNoFootsteps()
     {
-        instance.setParameterByName("run", 2);
+
+        instance.setParameterByName("Run Pelo", 2);
     }
 }

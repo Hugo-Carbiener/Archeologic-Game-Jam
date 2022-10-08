@@ -2,6 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum deerStates
+{
+    Idle,
+    Spotted,
+    Run,
+    Dead
+}
+
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager i { get; private set; }
@@ -39,4 +47,9 @@ public class AudioManager : MonoBehaviour
 
         instance.setParameterByName("Indices", indiceAmount);
     }
+
+    public static void SetDeerAudioState(deerStates state)
+    {
+        i.instance.setParameterByNameWithLabel("Deerstate", state.ToString());
+    } 
 }
