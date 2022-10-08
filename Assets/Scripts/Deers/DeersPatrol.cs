@@ -25,6 +25,7 @@ public class DeersPatrol : MonoBehaviour
     private int currentPoint;
 
     private NavMeshAgent playerAgent;
+    private GroupMovement groupMovement;
     NavMeshAgent agent;
 
     private DeersState state;
@@ -35,6 +36,7 @@ public class DeersPatrol : MonoBehaviour
         currentPoint = 0;
         agent = GetComponent<NavMeshAgent>();
         playerAgent = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<NavMeshAgent>();
+        groupMovement = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<GroupMovement>();
         state = DeersState.FixeShifting;
 
     }
