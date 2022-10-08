@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 1959721405548891194}
   - component: {fileID: 543992084279743787}
   - component: {fileID: 2955617686402705126}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Hunter (4)
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -248,7 +248,7 @@ GameObject:
   - component: {fileID: 6227050135052522735}
   - component: {fileID: 6819972019817612074}
   - component: {fileID: 1357332184930530615}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Hunter (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -406,7 +406,7 @@ GameObject:
   - component: {fileID: 894850716814892984}
   - component: {fileID: 4430345060280524226}
   - component: {fileID: 3169622876598068590}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Hunter (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -564,7 +564,7 @@ GameObject:
   - component: {fileID: 2426416003232942612}
   - component: {fileID: 1178824621941198203}
   - component: {fileID: 4055185567631266239}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Hunter (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -722,7 +722,7 @@ GameObject:
   - component: {fileID: 325011482838712093}
   - component: {fileID: 2319464317651120478}
   - component: {fileID: 1421869002787571182}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Hunter (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -877,7 +877,7 @@ GameObject:
   - component: {fileID: 6023491974083964162}
   m_Layer: 0
   m_Name: HunterGroup
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -905,6 +905,7 @@ Transform:
   - {fileID: 6709369348043838687}
   - {fileID: 465162287402515237}
   - {fileID: 3020371892846304419}
+  - {fileID: 4274538157565408170}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -975,7 +976,7 @@ GameObject:
   - component: {fileID: 5175411143517161299}
   - component: {fileID: 5175411143517161296}
   - component: {fileID: 3490013294400983999}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Hunter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1134,9 +1135,10 @@ GameObject:
   - component: {fileID: 6109909961327139878}
   - component: {fileID: 6568731157925445475}
   - component: {fileID: 7898546495873843940}
-  m_Layer: 0
+  - component: {fileID: 3324858509094394686}
+  m_Layer: 6
   m_Name: Group
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1152,8 +1154,7 @@ Transform:
   m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 4274538157565408170}
+  m_Children: []
   m_Father: {fileID: 5175411143212448554}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1255,6 +1256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ui: {fileID: 3020371892846304415}
+  stamina: {fileID: 3861919976968343774}
 --- !u!114 &6568731157925445475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1287,6 +1289,20 @@ MonoBehaviour:
       Data3: 320087198
       Data4: 319407812
     Path: event:/FTS/Pelos/Pelos_Dirt
+--- !u!136 &3324858509094394686
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5175411144036252509}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6597320408187109662
 GameObject:
   m_ObjectHideFlags: 0
@@ -1302,7 +1318,7 @@ GameObject:
   - component: {fileID: 6409827421958124795}
   - component: {fileID: 5007117523614298645}
   - component: {fileID: 2695322033888933287}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Hunter (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
