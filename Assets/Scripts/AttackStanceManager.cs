@@ -11,6 +11,8 @@ public class AttackStanceManager : MonoBehaviour
     [SerializeField] private List<NavMeshAgent> agents;
     [SerializeField] private GameObject rangeIndicator;
     [SerializeField] private GameObject attackAreaRangeIndicator;
+    [SerializeField] private GameObject sagaiePrefab;
+    [SerializeField] private GameObject sphere;
     private Camera cam;
 
     [Header("Variables")]
@@ -37,6 +39,7 @@ public class AttackStanceManager : MonoBehaviour
             attackAreaRangeIndicator.transform.localScale = new Vector3(attackAreaSize, attackAreaSize, 1);
             attackAreaRangeIndicator.SetActive(false);
         }
+        Assert.IsNotNull(sagaiePrefab);
 
         // check that if we have a range indicator, we also have the other one
         if (rangeIndicator)
@@ -48,6 +51,7 @@ public class AttackStanceManager : MonoBehaviour
             Assert.IsNotNull(rangeIndicator);
         }
 
+        sagaiePrefab.gameObject.SetActive(false);
         cam = Camera.main;
 
         attackPosition = Vector3.zero;
@@ -64,8 +68,9 @@ public class AttackStanceManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (isInattackStance && attackAreaRangeIndicator && rangeIndicator)
+        if (isInattackStance)
         {
+
             // detect mouse position
             Vector3 mousePosition;
             RaycastHit hit;
@@ -73,16 +78,26 @@ public class AttackStanceManager : MonoBehaviour
             {
                 mousePosition = hit.point;
 
-                // refresh the position of the attack, only if we aim in range 
-                float distance = Vector3.Distance(transform.position, mousePosition);
-                Debug.Log("distance : " + distance);
-                if (distance < range)
+                if (attackAreaRangeIndicator && rangeIndicator)
                 {
-                    attackPosition = mousePosition;
+                    // refresh the position of the attack, only if we aim in range 
+                    float distance = Vector3.Distance(transform.position, mousePosition);
+                    Debug.Log("distance : " + distance);
+                    if (distance < range)
+                    {
+                        attackPosition = mousePosition;
+                    }
+                    attackAreaRangeIndicator.transform.position = attackPosition + new Vector3(0, 3, 0);
+                    AttackAreaSizeInterpolation(attackPosition);
+                    attackAreaRangeIndicator.transform.localScale = new Vector3(attackAreaSize * 2, attackAreaSize * 2, 1);
                 }
-                attackAreaRangeIndicator.transform.position = attackPosition + new Vector3(0, 3, 0);
-                AttackAreaSizeInterpolation(attackPosition);
-                attackAreaRangeIndicator.transform.localScale = new Vector3(attackAreaSize, attackAreaSize, 1);
+            }
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                // instantiate sagaie
+                Instantiate(sphere, attackPosition);
+                InstantiateSagaie(attackPosition);
             }
         }
     }
@@ -118,6 +133,22 @@ public class AttackStanceManager : MonoBehaviour
         float distance  = Vector3.Distance(transform.position, mousePos);
 
         attackAreaSize = minAttackAreaSize * (1 - distance/range) + maxAttackAreaSize * (distance/range);
+    }
+
+    private void InstantiateSagaie(Vector3 target)
+    {
+        // generate Random point in circle
+        float rdAngle = Random.Range(0, 360);
+        float rdRadius = Random.Range(0, attackAreaSize);
+        Vector3 endPoint = target + new Vector3(rdRadius * Mathf.Cos(rdAngle * Mathf.Deg2Rad), rdRadius * Mathf.Sin(rdAngle * Mathf.Deg2Rad));
+
+        // Instantiate sagaie and give variables for parabola
+        GameObject sagaie = Instantiate(sagaiePrefab);
+        Sagaie sagaieComponent = sagaie.GetComponent<Sagaie>();
+
+        sagaieComponent.SetStartPoint(transform.position);
+        sagaieComponent.SetEndPoint(endPoint);
+        sagaie.SetActive(true);
     }
 
     public bool IsInAttackStance()
