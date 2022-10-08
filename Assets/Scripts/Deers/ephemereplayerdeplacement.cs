@@ -16,7 +16,7 @@ public class ephemereplayerdeplacement : MonoBehaviour
     {
         Vector3 pos = transform.position;
 
-        if (Input.GetKey("w"))
+        if (Input.GetKey("z"))
         {
             pos.z += speed * Time.deltaTime;
         }
@@ -28,7 +28,7 @@ public class ephemereplayerdeplacement : MonoBehaviour
         {
             pos.x += speed * Time.deltaTime;
         }
-        if (Input.GetKey("a"))
+        if (Input.GetKey("q"))
         {
             pos.x -= speed * Time.deltaTime;
         }
