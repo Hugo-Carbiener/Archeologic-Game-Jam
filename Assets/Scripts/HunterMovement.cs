@@ -21,20 +21,19 @@ public class HunterMovement : MonoBehaviour
         groupMovementManager.getOnMouseRightClickEvent().AddListener(SetTargetPosition);
     }
 
-    private void OnEnable()
-    {
-       
-    }
-
     private void SetTargetPosition()
     {
-        Vector3 targetPosition;
-        Vector3 offset = - groupMovementManager.transform.position + transform.position;
-        Vector3 groupTargetPosition = groupMovementManager.GetTargetPosition();
-        if (groupTargetPosition != null)
+        if (groupMovementManager.OrderIsValid())
         {
+            Vector3 targetPosition;
+            Vector3 offset = - groupMovementManager.transform.position + transform.position;
+            Vector3 groupTargetPosition = groupMovementManager.GetTargetPosition();
+            
             targetPosition = groupTargetPosition + offset;
+
+            agent.speed = groupMovementManager.GetSpeed();
             agent.SetDestination(targetPosition);
+            
         }
     }
 }
