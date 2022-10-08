@@ -20,6 +20,8 @@ public class AudioManager : MonoBehaviour
 
     private int indiceAmount = 1;
 
+    public bool deathMusicIsPlaying = false;
+
 
     void Start()
     {
@@ -51,5 +53,9 @@ public class AudioManager : MonoBehaviour
     public static void SetDeerAudioState(deerStates state)
     {
         i.instance.setParameterByNameWithLabel("Deerstate", state.ToString());
+        if (state == deerStates.Dead)
+        {
+            i.deathMusicIsPlaying = true;
+        }
     } 
 }

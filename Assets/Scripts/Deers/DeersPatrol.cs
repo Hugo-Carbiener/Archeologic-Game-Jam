@@ -99,15 +99,20 @@ public class DeersPatrol : MonoBehaviour
                 break;
         }
 
-        if (state == DeersState.WaitingForReturnInFixe || state == DeersState.FixeShifting)
+        if (!AudioManager.i.deathMusicIsPlaying)
         {
-            AudioManager.SetDeerAudioState(deerStates.Idle);
-        } else if (state == DeersState.Fleeing)
-        {
-            AudioManager.SetDeerAudioState(deerStates.Run);
-        } else if (isViewBePlayer)
-        {
-            AudioManager.SetDeerAudioState(deerStates.Spotted);
+            if (state == DeersState.Fleeing)
+            {
+                AudioManager.SetDeerAudioState(deerStates.Run);
+            } else if (isViewBePlayer)
+            {
+                Debug.Log("Deer sees player and play audio");
+
+                AudioManager.SetDeerAudioState(deerStates.Spotted);
+            } else if (state == DeersState.WaitingForReturnInFixe || state == DeersState.FixeShifting)
+            {
+                AudioManager.SetDeerAudioState(deerStates.Idle);
+            }
         }
     }
 
@@ -154,6 +159,7 @@ public class DeersPatrol : MonoBehaviour
     {
         if (Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(playerAgent.transform.position.x, playerAgent.transform.position.z)) < viewOfPlayer)
         {
+            Debug.Log("Deer sees player");
             isViewBePlayer = true;
         }
         else { isViewBePlayer = false; }
