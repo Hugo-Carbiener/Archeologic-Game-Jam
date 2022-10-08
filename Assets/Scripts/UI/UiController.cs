@@ -6,15 +6,17 @@ using UnityEngine.UI;
 
 /**
  *      Component used by the UI prefab
- *  Handles the various methods of the UI, including the stamina bar
+ *  Handles the various methods of the UI, including the stamina bar and attack symbol
  */
 public class UiController : MonoBehaviour
 {
     [SerializeField] private Slider staminaBar;
+    [SerializeField] private Image attackSymbol;
 
     private void Awake()
     {
         Assert.IsNotNull(staminaBar);
+        Assert.IsNotNull(attackSymbol);
     }
 
 
@@ -24,5 +26,20 @@ public class UiController : MonoBehaviour
     public void UpdateStaminaBar(float value)
     {
         staminaBar.value = value;
+    }
+
+    /**
+     *      Function called by AttackStanceManager of the player, that will update the attack status
+     */
+    public void UpdatesAttackStance(bool isInAttackStance)
+    {
+        if (isInAttackStance) //if player in attack stance
+        {
+            attackSymbol.gameObject.SetActive(true);
+        }
+        else
+        {
+            attackSymbol.gameObject.SetActive(false);
+        }
     }
 }
