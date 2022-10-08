@@ -63,7 +63,10 @@ public class AttackStanceManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        playerReferencesController.getUI().GetComponent<UiController>().UpdatesAttackStance(isInAttackStance);
+        if (attackAreaRangeIndicator)
+        {
+            playerReferencesController.getUI().GetComponent<UiController>().UpdatesAttackStance(isInAttackStance);
+        }
         if (isInAttackStance)
         {
 
