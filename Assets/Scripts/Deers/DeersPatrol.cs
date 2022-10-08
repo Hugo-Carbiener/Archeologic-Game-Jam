@@ -37,6 +37,8 @@ public class DeersPatrol : MonoBehaviour
 
     private DeersState state;
 
+    [SerializeField] private DeerAudio audio;
+
     [SerializeField] GameObject sphere;
 
     public static event Action<Vector3> VectorToDestination;
@@ -47,8 +49,8 @@ public class DeersPatrol : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         playerAgent = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<NavMeshAgent>();
         groupMovement = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<GroupMovement>();
+        if (!audio) audio = GetComponent<DeerAudio>();
         state = DeersState.FixeShifting;
-
     }
 
     void Update()
@@ -62,6 +64,7 @@ public class DeersPatrol : MonoBehaviour
                 agent.ResetPath();
                 Stop?.Invoke();
                 agent.speed = runSpeed;
+                audio.SetRunAudio();
 
                 float relativePlayerAngularPosition = GetPlayerAngularPosition();
                 //sphere.transform.position = new Vector3(-20 * Mathf.Cos(Mathf.Deg2Rad*relativePlayerAngularPosition), transform.position.y,-20 * Mathf.Sin(Mathf.Deg2Rad * relativePlayerAngularPosition));
@@ -75,6 +78,7 @@ public class DeersPatrol : MonoBehaviour
                 break;
             case DeersState.FixeShifting:
                 agent.speed = walkSpeed;
+                audio.SetWalkAudio();
                 agent.SetDestination(targetPoints[currentPoint].position);
                 VectorToDestination?.Invoke(targetPoints[currentPoint].position);
                 if (Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(targetPoints[currentPoint].position.x, targetPoints[currentPoint].position.z)) < 1.5f)
@@ -89,6 +93,7 @@ public class DeersPatrol : MonoBehaviour
                 }
                 break;
             case DeersState.WaitingForReturnInFixe:
+                audio.SetNoFootsteps();
                 agent.isStopped = true;
                 agent.ResetPath();
                 Stop?.Invoke();
@@ -102,15 +107,13 @@ public class DeersPatrol : MonoBehaviour
                 break;
         }
 
-        if (!AudioManager.i.deathMusicIsPlaying)
+        if (AudioManager.i && !AudioManager.i.deathMusicIsPlaying)
         {
             if (state == DeersState.Fleeing)
             {
                 AudioManager.SetDeerAudioState(deerStates.Run);
             } else if (isViewBePlayer)
             {
-                Debug.Log("Deer sees player and play audio");
-
                 AudioManager.SetDeerAudioState(deerStates.Spotted);
             } else if (state == DeersState.WaitingForReturnInFixe || state == DeersState.FixeShifting)
             {
@@ -162,7 +165,6 @@ public class DeersPatrol : MonoBehaviour
     {
         if (Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(playerAgent.transform.position.x, playerAgent.transform.position.z)) < viewOfPlayer)
         {
-            Debug.Log("Deer sees player");
             isViewBePlayer = true;
         }
         else { isViewBePlayer = false; }

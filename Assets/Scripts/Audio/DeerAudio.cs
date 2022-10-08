@@ -6,11 +6,14 @@ public class DeerAudio : MonoBehaviour
 {
     private FMOD.Studio.EventInstance instance;
 
-    public FMODUnity.EventReference fmodMusicEvent;
+    public FMODUnity.StudioEventEmitter fmodMusicEventEmitter;
+
+    public FMODUnity.EventReference fmodAudioEvent;
 
     void Start()
     {
-        instance = FMODUnity.RuntimeManager.CreateInstance(fmodMusicEvent);
+        fmodAudioEvent = fmodMusicEventEmitter.EventReference;
+        instance = FMODUnity.RuntimeManager.CreateInstance(fmodAudioEvent);
         instance.start();
     }
 

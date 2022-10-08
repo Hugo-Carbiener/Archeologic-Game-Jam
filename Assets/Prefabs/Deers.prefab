@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8326747232186671115}
   - component: {fileID: 8326747232186671112}
   - component: {fileID: 8326747232186671113}
-  - component: {fileID: 5905429670375441173}
+  - component: {fileID: 4320269297295777083}
   m_Layer: 0
   m_Name: Deers
   m_TagString: Untagged
@@ -150,8 +150,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  audio: {fileID: 4320269297295777083}
   sphere: {fileID: 0}
---- !u!114 &5905429670375441173
+--- !u!114 &4320269297295777083
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -160,24 +161,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8326747232186671350}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Script: {fileID: 11500000, guid: b4f169bc2a563f442be82f77a4e1313c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
+  fmodMusicEvent:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  Event: 
-  PlayEvent: 1
-  StopEvent: 2
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
+      Data1: -1067794926
+      Data2: 1112499121
+      Data3: -1970065494
+      Data4: -224109268
+    Path: event:/FTS/Rennes/Renne_Dirt
