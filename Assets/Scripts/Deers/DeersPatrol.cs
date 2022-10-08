@@ -15,17 +15,19 @@ public enum DeersState
 }
 public class DeersPatrol : MonoBehaviour
 {
-    [SerializeField] float viewRangeWhenRun; //Distance à laquelle le renne voit le joueur qui court
-    [SerializeField] float viewRangeWhenWalk; //Distance à laquelle le renne voit le joueur qui marche
-    [SerializeField] float viewOfPlayer; //Distance à laquelle le joueur voit les rennes
-    [SerializeField] float fleeRange; //Distance à laquelle le renne fuit
-    [SerializeField] float timeBeforeTired; //Temps avant que le renne s'épuise
-    [SerializeField] float timeBeforeFixe; //Temps avant lequelle le renne se remet à suivre son chemin
+    [SerializeField] float viewRangeWhenRun; //Distance ï¿½ laquelle le renne voit le joueur qui court
+    [SerializeField] float viewRangeWhenWalk; //Distance ï¿½ laquelle le renne voit le joueur qui marche
+    [SerializeField] float viewOfPlayer; //Distance ï¿½ laquelle le joueur voit les rennes
+    [SerializeField] float fleeRange; //Distance ï¿½ laquelle le renne fuit
+    [SerializeField] float timeBeforeTired; //Temps avant que le renne s'ï¿½puise
+    [SerializeField] float timeBeforeFixe; //Temps avant lequelle le renne se remet ï¿½ suivre son chemin
     [SerializeField] float angleOfDeadEnd; //Angle pour aller dans un cul de sac
+    [SerializeField] float walkSpeed;
+    [SerializeField] float runSpeed;
 
     [SerializeField] private Transform[] deadEnds; //Liste cul de sac
     [SerializeField] private Transform[] targetPoints; //Liste point chemin
-    private int currentPoint; //Point à atteindre
+    private int currentPoint; //Point ï¿½ atteindre
 
     private NavMeshAgent playerAgent;
     private GroupMovement groupMovement;
@@ -34,6 +36,8 @@ public class DeersPatrol : MonoBehaviour
     private bool isViewBePlayer; //le joueur voit le renne
 
     private DeersState state;
+
+    [SerializeField] private DeerAudio audio;
 
     [SerializeField] GameObject sphere;
 
@@ -45,20 +49,22 @@ public class DeersPatrol : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         playerAgent = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<NavMeshAgent>();
         groupMovement = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<GroupMovement>();
+        if (!audio) audio = GetComponent<DeerAudio>();
         state = DeersState.FixeShifting;
-
     }
 
     void Update()
     {
-        print(state);
         HumanSee();
+
         switch (state)
         {
             case DeersState.Fleeing:
                 agent.isStopped = true;
                 agent.ResetPath();
                 Stop?.Invoke();
+                agent.speed = runSpeed;
+                audio.SetRunAudio();
 
                 float relativePlayerAngularPosition = GetPlayerAngularPosition();
                 //sphere.transform.position = new Vector3(-20 * Mathf.Cos(Mathf.Deg2Rad*relativePlayerAngularPosition), transform.position.y,-20 * Mathf.Sin(Mathf.Deg2Rad * relativePlayerAngularPosition));
@@ -71,6 +77,8 @@ public class DeersPatrol : MonoBehaviour
                 }
                 break;
             case DeersState.FixeShifting:
+                agent.speed = walkSpeed;
+                audio.SetWalkAudio();
                 agent.SetDestination(targetPoints[currentPoint].position);
                 VectorToDestination?.Invoke(targetPoints[currentPoint].position);
                 if (Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(targetPoints[currentPoint].position.x, targetPoints[currentPoint].position.z)) < 1.5f)
@@ -85,6 +93,7 @@ public class DeersPatrol : MonoBehaviour
                 }
                 break;
             case DeersState.WaitingForReturnInFixe:
+                audio.SetNoFootsteps();
                 agent.isStopped = true;
                 agent.ResetPath();
                 Stop?.Invoke();
@@ -98,6 +107,19 @@ public class DeersPatrol : MonoBehaviour
                 break;
         }
 
+        if (AudioManager.i && !AudioManager.i.deathMusicIsPlaying)
+        {
+            if (state == DeersState.Fleeing)
+            {
+                AudioManager.SetDeerAudioState(deerStates.Run);
+            } else if (isViewBePlayer)
+            {
+                AudioManager.SetDeerAudioState(deerStates.Spotted);
+            } else if (state == DeersState.WaitingForReturnInFixe || state == DeersState.FixeShifting)
+            {
+                AudioManager.SetDeerAudioState(deerStates.Idle);
+            }
+        }
     }
 
     private float GetPlayerAngularPosition()

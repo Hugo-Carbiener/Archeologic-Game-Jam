@@ -26,6 +26,8 @@ public class Sagaie : MonoBehaviour
         state = SagaieState.inGround;
 
         StartCoroutine(Fly(start, end));
+        print("start " + start);
+        print("end " + end);
     }
 
     public static Vector3 Parabola(Vector3 start, Vector3 end, float height, float t)
@@ -37,7 +39,7 @@ public class Sagaie : MonoBehaviour
         return new Vector3(mid.x, f(t) + Mathf.Lerp(start.y, end.y, t), mid.z);
     }
 
-    public IEnumerator Fly(Vector2 start, Vector2 finish) //Coroutine calcul de la trajectoire
+    public IEnumerator Fly(Vector3 start, Vector3 finish) //Coroutine calcul de la trajectoire
     {
 
         state = SagaieState.midAir;
@@ -67,5 +69,10 @@ public class Sagaie : MonoBehaviour
     public void SetEndPoint(Vector3 end)
     {
         this.end = end;
+    }
+
+    public void SetRotation(Vector3 rotation)
+    {
+        transform.Rotate(rotation);
     }
 }

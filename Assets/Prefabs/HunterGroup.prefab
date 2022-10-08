@@ -153,7 +153,7 @@ MonoBehaviour:
   agents: []
   attackAreaRangeIndicator: {fileID: 0}
   sagaiePrefab: {fileID: 8331086351120297723, guid: db93e530129fa754b87416375227dcbc, type: 3}
-  sphere: {fileID: 0}
+  sphere: {fileID: 5336340048464962673, guid: 7d8800fd9a6e00942b394e6fd036f737, type: 3}
   range: 10
   minAttackAreaSize: 0.5
   maxAttackAreaSize: 5
@@ -168,8 +168,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4274538157565408170}
   - component: {fileID: 4575302006275481102}
-  - component: {fileID: 2519806326489454038}
-  - component: {fileID: 5719619331705689871}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -235,27 +233,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &2519806326489454038
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2311026994448769612}
-  m_Enabled: 1
---- !u!114 &5719619331705689871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2311026994448769612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b66c86737b4d5e41bd605cc78b5e825, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  group: {fileID: 5175411144036252509}
 --- !u!1 &3214127720002256960
 GameObject:
   m_ObjectHideFlags: 0
@@ -409,7 +386,7 @@ MonoBehaviour:
   agents: []
   attackAreaRangeIndicator: {fileID: 0}
   sagaiePrefab: {fileID: 8331086351120297723, guid: db93e530129fa754b87416375227dcbc, type: 3}
-  sphere: {fileID: 0}
+  sphere: {fileID: 5336340048464962673, guid: 7d8800fd9a6e00942b394e6fd036f737, type: 3}
   range: 10
   minAttackAreaSize: 0.5
   maxAttackAreaSize: 5
@@ -567,7 +544,7 @@ MonoBehaviour:
   agents: []
   attackAreaRangeIndicator: {fileID: 0}
   sagaiePrefab: {fileID: 8331086351120297723, guid: db93e530129fa754b87416375227dcbc, type: 3}
-  sphere: {fileID: 0}
+  sphere: {fileID: 5336340048464962673, guid: 7d8800fd9a6e00942b394e6fd036f737, type: 3}
   range: 10
   minAttackAreaSize: 0.5
   maxAttackAreaSize: 5
@@ -725,7 +702,7 @@ MonoBehaviour:
   agents: []
   attackAreaRangeIndicator: {fileID: 0}
   sagaiePrefab: {fileID: 8331086351120297723, guid: db93e530129fa754b87416375227dcbc, type: 3}
-  sphere: {fileID: 0}
+  sphere: {fileID: 5336340048464962673, guid: 7d8800fd9a6e00942b394e6fd036f737, type: 3}
   range: 10
   minAttackAreaSize: 0.5
   maxAttackAreaSize: 5
@@ -883,7 +860,7 @@ MonoBehaviour:
   agents: []
   attackAreaRangeIndicator: {fileID: 0}
   sagaiePrefab: {fileID: 8331086351120297723, guid: db93e530129fa754b87416375227dcbc, type: 3}
-  sphere: {fileID: 0}
+  sphere: {fileID: 5336340048464962673, guid: 7d8800fd9a6e00942b394e6fd036f737, type: 3}
   range: 10
   minAttackAreaSize: 0.5
   maxAttackAreaSize: 5
@@ -928,7 +905,6 @@ Transform:
   - {fileID: 6709369348043838687}
   - {fileID: 465162287402515237}
   - {fileID: 3020371892846304419}
-  - {fileID: 4274538157565408170}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1137,7 +1113,7 @@ MonoBehaviour:
   agents: []
   attackAreaRangeIndicator: {fileID: 0}
   sagaiePrefab: {fileID: 8331086351120297723, guid: db93e530129fa754b87416375227dcbc, type: 3}
-  sphere: {fileID: 0}
+  sphere: {fileID: 5336340048464962673, guid: 7d8800fd9a6e00942b394e6fd036f737, type: 3}
   range: 10
   minAttackAreaSize: 0.5
   maxAttackAreaSize: 5
@@ -1156,6 +1132,8 @@ GameObject:
   - component: {fileID: 8743345522613566569}
   - component: {fileID: 3861919976968343774}
   - component: {fileID: 6109909961327139878}
+  - component: {fileID: 6568731157925445475}
+  - component: {fileID: 7898546495873843940}
   m_Layer: 0
   m_Name: Group
   m_TagString: Untagged
@@ -1174,7 +1152,8 @@ Transform:
   m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4274538157565408170}
   m_Father: {fileID: 5175411143212448554}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1192,9 +1171,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 5175411144036252510}
   attackStanceManager: {fileID: 8743345522613566569}
+  audio: {fileID: 0}
   walkSpeed: 5
   runRange: 10
   runSpeed: 10
+  stoppingDistance: 2
   state: 0
 --- !u!195 &5175411144036252510
 NavMeshAgent:
@@ -1241,7 +1222,7 @@ MonoBehaviour:
   - {fileID: 894850716814892984}
   attackAreaRangeIndicator: {fileID: 49704263574393989}
   sagaiePrefab: {fileID: 8331086351120297723, guid: db93e530129fa754b87416375227dcbc, type: 3}
-  sphere: {fileID: 0}
+  sphere: {fileID: 5336340048464962673, guid: 7d8800fd9a6e00942b394e6fd036f737, type: 3}
   range: 10
   minAttackAreaSize: 0.5
   maxAttackAreaSize: 5
@@ -1258,7 +1239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92d7efb2fa19ae347818cefb5137ac14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxStamina: 20
+  maxStamina: 500
   staminaWalkConsumptionRate: 0.8
   staminaRunConsumptionRate: 0.8
 --- !u!114 &6109909961327139878
@@ -1274,6 +1255,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ui: {fileID: 3020371892846304415}
+--- !u!114 &6568731157925445475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5175411144036252509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
+--- !u!114 &7898546495873843940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5175411144036252509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fa73810cc8f35741abb7e51197a2f73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fmodMusicEvent:
+    Guid:
+      Data1: -1119096270
+      Data2: 1130540498
+      Data3: 320087198
+      Data4: 319407812
+    Path: event:/FTS/Pelos/Pelos_Dirt
 --- !u!1 &6597320408187109662
 GameObject:
   m_ObjectHideFlags: 0
@@ -1427,7 +1440,7 @@ MonoBehaviour:
   agents: []
   attackAreaRangeIndicator: {fileID: 0}
   sagaiePrefab: {fileID: 8331086351120297723, guid: db93e530129fa754b87416375227dcbc, type: 3}
-  sphere: {fileID: 0}
+  sphere: {fileID: 5336340048464962673, guid: 7d8800fd9a6e00942b394e6fd036f737, type: 3}
   range: 10
   minAttackAreaSize: 0.5
   maxAttackAreaSize: 5

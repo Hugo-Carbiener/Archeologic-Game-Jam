@@ -15,12 +15,14 @@ public class GroupMovement : MonoBehaviour
     [Header("Components")]
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private AttackStanceManager attackStanceManager;
+    [SerializeField] private PlayerAudio audio;
     private Camera cam;
 
     [Header("Variables")]
     [SerializeField] private float walkSpeed;
     [SerializeField] private float runRange;
     [SerializeField] private float runSpeed;
+    [SerializeField] private float stoppingDistance;
     private float speed;
     private bool orderIsValid;
     private Vector3 leaderTargetPosition;
@@ -33,6 +35,7 @@ public class GroupMovement : MonoBehaviour
     {
         if (!agent) agent = GetComponent<NavMeshAgent>();
         if (!attackStanceManager) attackStanceManager = GetComponent<AttackStanceManager>();
+        if (!audio) audio = GetComponent<PlayerAudio>();
         cam = Camera.main;
         speed = walkSpeed;
         onMouseRightClick = new UnityEvent();
@@ -54,6 +57,14 @@ public class GroupMovement : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             onMouseRightClick.Invoke();
+        }
+
+        if (Vector3.Distance(transform.position, leaderTargetPosition) <= stoppingDistance)
+        {
+            agent.isStopped = true;
+            agent.ResetPath();
+            audio.SetNoFootsteps();
+
         }
     }
 
@@ -84,7 +95,6 @@ public class GroupMovement : MonoBehaviour
         {
             OrderDistanceProcessing(positionOnOrdrer);
         }
-
     }
 
     private void OrderDistanceProcessing(Vector3 initialPosition)
@@ -95,10 +105,12 @@ public class GroupMovement : MonoBehaviour
         {
             state = movementStates.running;
             speed = runSpeed;
+            audio.SetRunAudio();
         } else
         {
             state = movementStates.walking;
             speed = walkSpeed;
+            audio.SetRunAudio();
         }
 
         agent.speed = speed;
@@ -111,6 +123,14 @@ public class GroupMovement : MonoBehaviour
     public float GetSpeed()
     {
         return speed;
+    }
+    public float GetWalkSpeed()
+    {
+        return walkSpeed;
+    }
+    public float GetRunSpeed()
+    {
+        return runSpeed;
     }
     public bool OrderIsValid()
     {
@@ -125,5 +145,9 @@ public class GroupMovement : MonoBehaviour
     public movementStates GetMovementState()
     {
         return state;
+    }
+    public NavMeshAgent GetAgent()
+    {
+        return agent;
     }
 }
