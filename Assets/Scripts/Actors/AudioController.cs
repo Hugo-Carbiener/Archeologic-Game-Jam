@@ -11,5 +11,6 @@ public class AudioController : MonoBehaviour
     public void PlaySound()
     {
         //PLAY SOUND
+        print("Audio Controller.PlaySound() : playing sound");
     }
 }

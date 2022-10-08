@@ -138,7 +138,7 @@ public class IndicesControllers : MonoBehaviour
     /**
      * function called by the animal group script handling the spawn of indices and sets the indices' revealed direction
      */
-    public void SetGroupTransform(Quaternion transform)
+    public void SetGroupRotation(Quaternion transform)
     {
         groupRotation = transform;
     }
