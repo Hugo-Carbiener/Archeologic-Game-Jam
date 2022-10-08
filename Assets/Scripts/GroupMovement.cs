@@ -32,6 +32,7 @@ public class GroupMovement : MonoBehaviour
     private void Awake()
     {
         if (!agent) agent = GetComponent<NavMeshAgent>();
+        if (!attackStanceManager) attackStanceManager = GetComponent<AttackStanceManager>();
         cam = Camera.main;
         speed = walkSpeed;
         onMouseRightClick = new UnityEvent();

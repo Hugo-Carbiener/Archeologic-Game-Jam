@@ -9,8 +9,9 @@ public class AttackStanceManager : MonoBehaviour
 {
     [Header("Components")]
     [SerializeField] private List<NavMeshAgent> agents;
-    [SerializeField] private GameObject rangeIndicator;
     [SerializeField] private GameObject attackAreaRangeIndicator;
+    [SerializeField] private GameObject sagaiePrefab;
+    [SerializeField] private GameObject sphere;
     private Camera cam;
 
     [Header("Variables")]
@@ -30,27 +31,20 @@ public class AttackStanceManager : MonoBehaviour
     {
         attackAreaSize = minAttackAreaSize;
 
-        if (rangeIndicator)
-        {
-            rangeIndicator.transform.localScale = new Vector3(range * 2, range * 2, 1);
-            rangeIndicator.SetActive(false);
-        }
         if (attackAreaRangeIndicator)
         {
             attackAreaRangeIndicator.transform.localScale = new Vector3(attackAreaSize, attackAreaSize, 1);
             attackAreaRangeIndicator.SetActive(false);
         }
+        Assert.IsNotNull(sagaiePrefab);
 
         // check that if we have a range indicator, we also have the other one
-        if (rangeIndicator)
+        if (attackAreaRangeIndicator)
         {
             Assert.IsNotNull(attackAreaRangeIndicator);
         }
-        if (attackAreaRangeIndicator)
-        {
-            Assert.IsNotNull(rangeIndicator);
-        }
 
+        sagaiePrefab.gameObject.SetActive(false);
         cam = Camera.main;
 
         attackPosition = Vector3.zero;
@@ -69,11 +63,10 @@ public class AttackStanceManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //enable attack symbol in UI
         playerReferencesController.getUI().GetComponent<UiController>().UpdatesAttackStance(isInattackStance);
-
-        if (isInattackStance && attackAreaRangeIndicator && rangeIndicator)
+        if (isInAttackStance)
         {
+
             // detect mouse position
             Vector3 mousePosition;
             RaycastHit hit;
@@ -81,40 +74,48 @@ public class AttackStanceManager : MonoBehaviour
             {
                 mousePosition = hit.point;
 
-                // refresh the position of the attack, only if we aim in range 
-                float distance = Vector3.Distance(transform.position, mousePosition);
-                Debug.Log("distance : " + distance);
-                if (distance < range)
+                if (attackAreaRangeIndicator)
                 {
-                    attackPosition = mousePosition;
+                    // refresh the position of the attack, only if we aim in range 
+                    float distance = Vector3.Distance(transform.position, mousePosition);
+                    Debug.Log("distance : " + distance);
+                    if (distance < range)
+                    {
+                        attackPosition = mousePosition;
+                    }
+                    attackAreaRangeIndicator.transform.position = attackPosition;
+                    AttackAreaSizeInterpolation(attackPosition);
+                    attackAreaRangeIndicator.transform.localScale = new Vector3(attackAreaSize * 2, attackAreaSize * 2, 1);
                 }
-                attackAreaRangeIndicator.transform.position = attackPosition;
-                AttackAreaSizeInterpolation(attackPosition);
-                attackAreaRangeIndicator.transform.localScale = new Vector3(attackAreaSize, attackAreaSize, 1);
             }
+        }
+
+        if (Input.GetMouseButtonDown(0) && isInAttackStance)
+        {
+            // instantiate sagaie
+                
+            InstantiateSagaie(attackPosition);
         }
     }
 
     private void ToggleAttackStance()
     {
-        isInattackStance = !isInattackStance;
+        isInAttackStance = !isInAttackStance;
         
         foreach(var agent in agents)
         {
             agent.SetDestination(agent.transform.position);
         }
 
-        // enable range indicator
-        if (isInattackStance && rangeIndicator)
-        {
-            rangeIndicator.SetActive(true);
-            rangeIndicator.transform.position = transform.position;
-        }
 
         // enable attack area range indicator
-        if (isInattackStance && attackAreaRangeIndicator)
+        if (isInAttackStance && attackAreaRangeIndicator)
         {
             attackAreaRangeIndicator.SetActive(true);
+        }
+        if (!isInAttackStance && attackAreaRangeIndicator)
+        {
+            attackAreaRangeIndicator.SetActive(false);
         }
     }
 
@@ -128,8 +129,25 @@ public class AttackStanceManager : MonoBehaviour
         attackAreaSize = minAttackAreaSize * (1 - distance/range) + maxAttackAreaSize * (distance/range);
     }
 
+    private void InstantiateSagaie(Vector3 target)
+    {
+        // generate Random point in circle
+        //float rdAngle = Random.Range(0, 360);
+        //float rdRadius = Random.Range(0, attackAreaSize);
+        //Vector3 endPoint = target + new Vector3(rdRadius * Mathf.Cos(rdAngle * Mathf.Deg2Rad), rdRadius * Mathf.Sin(rdAngle * Mathf.Deg2Rad));
+
+        // Instantiate sagaie and give variables for parabola
+        GameObject sagaie = Instantiate(sagaiePrefab);
+        Sagaie sagaieComponent = sagaie.GetComponent<Sagaie>();
+
+        sagaieComponent.SetStartPoint(transform.position);
+        Instantiate(sphere, target, Quaternion.Euler(0, 0, 0));
+        sagaieComponent.SetEndPoint(target);
+        sagaie.SetActive(true);
+    }
+
     public bool IsInAttackStance()
     {
-        return isInattackStance;
+        return isInAttackStance;
     }
 }
