@@ -5,15 +5,23 @@ using UnityEngine;
 public class StaminaModule : MonoBehaviour
 {
     [SerializeField] private float maxStamina = 20f; //maximum stamina
-    [SerializeField] private float staminaConsumptionRate;  //rate at which the stamina is consumed (can change depending)
+    [SerializeField] private float staminaWalkConsumptionRate;  //rate at which the stamina is consumed when walking
+    [SerializeField] private float staminaRunConsumptionRate;  //rate at which the stamina is consumed when running - as a rule of thumb, RunRate > WalkRate
+    
     private PlayerReferencesController playerReferencesController;
+    private GroupMovement groupMovement;
+    private movementStates playerMovementState;
+    
+    private float curConsumptionRate;   //current stamina consumption rate
     private float curStamina;
 
 
     private void Awake()
     {
         curStamina = maxStamina;
+        curConsumptionRate = staminaWalkConsumptionRate;
         playerReferencesController = GetComponent<PlayerReferencesController>();
+        groupMovement = GetComponent<GroupMovement>();
     }
 
     private void Start()
@@ -21,9 +29,25 @@ public class StaminaModule : MonoBehaviour
         StartCoroutine(ConsumptionTimer());
     }
 
+    private void Update()
+    {
+        playerMovementState = groupMovement.GetMovementStates();
+        if (playerMovementState == movementStates.walking)
+        {
+            curConsumptionRate = staminaWalkConsumptionRate;
+        }
+        else
+        {
+            curConsumptionRate = staminaRunConsumptionRate;
+        }
+    }
+
+    /**
+     *      Timer function that handles the consumption, with wait time being the consumptionRate
+     */
     private IEnumerator ConsumptionTimer()
     {
-        yield return new WaitForSeconds(staminaConsumptionRate);
+        yield return new WaitForSeconds(curConsumptionRate);
         ConsumeStamina();
         StartCoroutine(ConsumptionTimer());
     }

@@ -479,7 +479,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxStamina: 100
-  staminaConsumptionRate: 0.2
+  staminaWalkConsumptionRate: 0
+  staminaRunConsumptionRate: 0
 --- !u!114 &414556405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1660,6 +1661,10 @@ PrefabInstance:
     - target: {fileID: 7751976012224954436, guid: 371aba35b5be2a2479245ba7877e0ef4, type: 3}
       propertyPath: m_Name
       value: Map
+      objectReference: {fileID: 0}
+    - target: {fileID: 7751976012224954436, guid: 371aba35b5be2a2479245ba7877e0ef4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 371aba35b5be2a2479245ba7877e0ef4, type: 3}
