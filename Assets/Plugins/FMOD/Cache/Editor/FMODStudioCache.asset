@@ -1,5 +1,23 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6703056531637049610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/AudioBuild/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638008232115460216
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-4942595145078601488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18,6 +36,53 @@ MonoBehaviour:
   lastModified: 638008222238775716
   FileSizes: []
   Exists: 1
+--- !u!114 &-2666462606486470066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Mammouth
+  m_EditorClassIdentifier: 
+  Path: event:/Mammouth
+  Guid:
+    Data1: 1698376968
+    Data2: 1231264287
+    Data3: 1574374570
+    Data4: -1037717577
+  Banks:
+  - {fileID: -6703056531637049610}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2880
+--- !u!114 &-2284142171529199973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/AudioBuild/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638008232115480199
+  FileSizes:
+  - Name: 
+    Value: 1036
+  Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31,15 +96,16 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 1531127970448972909}
-  - {fileID: -4942595145078601488}
-  EditorEvents: []
+  - {fileID: -2284142171529199973}
+  - {fileID: -6703056531637049610}
+  EditorEvents:
+  - {fileID: -2666462606486470066}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -4942595145078601488}
+  - {fileID: -6703056531637049610}
   StringsBanks:
-  - {fileID: 1531127970448972909}
-  cacheTime: 638008222350428149
+  - {fileID: -2284142171529199973}
+  cacheTime: 638008232115480199
   cacheVersion: 131593
 --- !u!114 &1531127970448972909
 MonoBehaviour:

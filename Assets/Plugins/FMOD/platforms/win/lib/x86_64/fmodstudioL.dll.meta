@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 793f8a6b3cf99984ba9cb5877ec81cbf
+guid: 5bf4b08fffab17741b71a393b46df03c
 PluginImporter:
   externalObjects: {}
   serializedVersion: 2
@@ -14,16 +14,11 @@ PluginImporter:
   - first:
       Any: 
     second:
-<<<<<<< HEAD
       enabled: 0
-=======
-      enabled: 1
->>>>>>> withoutFMOD
       settings: {}
   - first:
       Editor: Editor
     second:
-<<<<<<< HEAD
       enabled: 1
       settings:
         CPU: x86_64
@@ -33,11 +28,6 @@ PluginImporter:
     second:
       enabled: 1
       settings: {}
-=======
-      enabled: 0
-      settings:
-        DefaultValueInitialized: true
->>>>>>> withoutFMOD
   userData: 
   assetBundleName: 
   assetBundleVariant: 
