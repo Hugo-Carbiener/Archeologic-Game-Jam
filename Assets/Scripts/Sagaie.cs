@@ -70,4 +70,9 @@ public class Sagaie : MonoBehaviour
     {
         this.end = end;
     }
+
+    public void SetRotation(Vector3 rotation)
+    {
+        transform.Rotate(rotation);
+    }
 }
