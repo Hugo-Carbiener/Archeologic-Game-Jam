@@ -14,6 +14,7 @@ public class GroupMovement : MonoBehaviour
 {
     [Header("Components")]
     [SerializeField] private NavMeshAgent agent;
+    [SerializeField] private AttackStanceManager attackStanceManager;
     private Camera cam;
 
     [Header("Variables")]
@@ -71,7 +72,11 @@ public class GroupMovement : MonoBehaviour
             
             // navmesh management
             agent.ResetPath();
-            agent.SetDestination(leaderTargetPosition);
+
+            if (!attackStanceManager.IsInAttackStance())
+            {
+                agent.SetDestination(leaderTargetPosition);
+            }
         }
 
         if (orderIsValid)
