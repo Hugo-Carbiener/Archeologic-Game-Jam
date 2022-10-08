@@ -122,7 +122,7 @@ public class GroupMovement : MonoBehaviour
         return onMouseRightClick;
     }
 
-    public movementStates GetMovementStates()
+    public movementStates GetMovementState()
     {
         return state;
     }
