@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5175411142961506939}
   m_Layer: 0
   m_Name: Hunter (4)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -245,7 +245,7 @@ GameObject:
   - component: {fileID: 5175411143261677296}
   m_Layer: 0
   m_Name: Hunter (1)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -383,7 +383,7 @@ GameObject:
   - component: {fileID: 3490013294400983999}
   m_Layer: 0
   m_Name: Hunter
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -535,9 +535,11 @@ GameObject:
   - component: {fileID: 5175411144036252508}
   - component: {fileID: 5175411144036252510}
   - component: {fileID: 8743345522613566569}
+  - component: {fileID: 8461348239269421983}
+  - component: {fileID: 9199407070739344768}
   m_Layer: 0
   m_Name: Group
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -622,6 +624,51 @@ MonoBehaviour:
   minAttackAreaSize: 0.5
   maxAttackAreaSize: 5
   isInattackStance: 0
+--- !u!114 &8461348239269421983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5175411144036252509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
+--- !u!114 &9199407070739344768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5175411144036252509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -354596944
+      Data2: 1319474853
+      Data3: -1562982990
+      Data4: 171933359
+    Path: event:/Music
+  Event: 
+  PlayEvent: 1
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: Indices
+    Value: 3
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &5175411144083095158
 GameObject:
   m_ObjectHideFlags: 0
@@ -638,7 +685,7 @@ GameObject:
   - component: {fileID: 5175411144083095153}
   m_Layer: 0
   m_Name: Hunter (3)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -775,7 +822,7 @@ GameObject:
   - component: {fileID: 5175411144625724644}
   m_Layer: 0
   m_Name: Hunter (2)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
