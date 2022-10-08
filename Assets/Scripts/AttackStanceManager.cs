@@ -88,7 +88,7 @@ public class AttackStanceManager : MonoBehaviour
                 {
                     attackPosition = mousePosition;
                 }
-                attackAreaRangeIndicator.transform.position = attackPosition + new Vector3(0, 3, 0);
+                attackAreaRangeIndicator.transform.position = attackPosition;
                 AttackAreaSizeInterpolation(attackPosition);
                 attackAreaRangeIndicator.transform.localScale = new Vector3(attackAreaSize, attackAreaSize, 1);
             }

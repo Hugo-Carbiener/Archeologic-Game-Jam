@@ -31,6 +31,7 @@ public class IndicesControllers : InteractableController
         if(_state == INTERACTABLE_STATES.REVEALED && indice!=null)
         {
             HideIndicator();
+            AudioManager.i.AddIndice();
             indice.transform.rotation = groupRotation;
             indice.gameObject.SetActive(true);
         }
