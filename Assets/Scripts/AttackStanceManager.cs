@@ -9,7 +9,6 @@ public class AttackStanceManager : MonoBehaviour
 {
     [Header("Components")]
     [SerializeField] private List<NavMeshAgent> agents;
-    [SerializeField] private GameObject rangeIndicator;
     [SerializeField] private GameObject attackAreaRangeIndicator;
     [SerializeField] private GameObject sagaiePrefab;
     [SerializeField] private GameObject sphere;
@@ -29,11 +28,6 @@ public class AttackStanceManager : MonoBehaviour
     {
         attackAreaSize = minAttackAreaSize;
 
-        if (rangeIndicator)
-        {
-            rangeIndicator.transform.localScale = new Vector3(range * 2, range * 2, 1);
-            rangeIndicator.SetActive(false);
-        }
         if (attackAreaRangeIndicator)
         {
             attackAreaRangeIndicator.transform.localScale = new Vector3(attackAreaSize, attackAreaSize, 1);
@@ -42,13 +36,9 @@ public class AttackStanceManager : MonoBehaviour
         Assert.IsNotNull(sagaiePrefab);
 
         // check that if we have a range indicator, we also have the other one
-        if (rangeIndicator)
-        {
-            Assert.IsNotNull(attackAreaRangeIndicator);
-        }
         if (attackAreaRangeIndicator)
         {
-            Assert.IsNotNull(rangeIndicator);
+            Assert.IsNotNull(attackAreaRangeIndicator);
         }
 
         sagaiePrefab.gameObject.SetActive(false);
@@ -78,7 +68,7 @@ public class AttackStanceManager : MonoBehaviour
             {
                 mousePosition = hit.point;
 
-                if (attackAreaRangeIndicator && rangeIndicator)
+                if (attackAreaRangeIndicator)
                 {
                     // refresh the position of the attack, only if we aim in range 
                     float distance = Vector3.Distance(transform.position, mousePosition);
@@ -111,17 +101,15 @@ public class AttackStanceManager : MonoBehaviour
             agent.SetDestination(agent.transform.position);
         }
 
-        // enable range indicator
-        if (isInAttackStance && rangeIndicator)
-        {
-            rangeIndicator.SetActive(true);
-            rangeIndicator.transform.position = transform.position;
-        }
 
         // enable attack area range indicator
         if (isInAttackStance && attackAreaRangeIndicator)
         {
             attackAreaRangeIndicator.SetActive(true);
+        }
+        if (!isInAttackStance && attackAreaRangeIndicator)
+        {
+            attackAreaRangeIndicator.SetActive(false);
         }
     }
 
