@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5175411142961506885}
   - component: {fileID: 5175411142961506938}
   - component: {fileID: 5175411142961506939}
+  - component: {fileID: 3475715680755719682}
   m_Layer: 0
   m_Name: Hunter (4)
   m_TagString: Untagged
@@ -136,6 +137,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 5175411142961506938}
   groupMovementManager: {fileID: 5175411144036252508}
+  attackStanceManager: {fileID: 0}
+--- !u!114 &3475715680755719682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5175411142961506936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e6195f6d8c78674cadfb996a4eed724, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementManager: {fileID: 5175411144036252508}
+  agents: []
+  isInattackStance: 0
 --- !u!1 &5175411143212448555
 GameObject:
   m_ObjectHideFlags: 0
@@ -145,9 +162,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5175411143212448554}
+  - component: {fileID: 5498353551121877492}
   m_Layer: 0
   m_Name: HunterGroup
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -173,6 +191,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5498353551121877492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5175411143212448555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e6195f6d8c78674cadfb996a4eed724, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementManager: {fileID: 5175411144036252508}
+  agents:
+  - {fileID: 5175411144036252510}
+  - {fileID: 5175411143517161299}
+  - {fileID: 5175411143261677299}
+  - {fileID: 5175411144625724647}
+  - {fileID: 5175411144083095152}
+  - {fileID: 5175411142961506938}
+  isInattackStance: 0
 --- !u!1 &5175411143261677297
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,6 +226,7 @@ GameObject:
   - component: {fileID: 5175411143261677298}
   - component: {fileID: 5175411143261677299}
   - component: {fileID: 5175411143261677296}
+  - component: {fileID: 8957970153304810815}
   m_Layer: 0
   m_Name: Hunter (1)
   m_TagString: Untagged
@@ -309,6 +349,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 5175411143261677299}
   groupMovementManager: {fileID: 5175411144036252508}
+  attackStanceManager: {fileID: 0}
+--- !u!114 &8957970153304810815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5175411143261677297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e6195f6d8c78674cadfb996a4eed724, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementManager: {fileID: 5175411144036252508}
+  agents: []
+  isInattackStance: 0
 --- !u!1 &5175411143517161297
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,6 +379,7 @@ GameObject:
   - component: {fileID: 5175411143517161298}
   - component: {fileID: 5175411143517161299}
   - component: {fileID: 5175411143517161296}
+  - component: {fileID: 3490013294400983999}
   m_Layer: 0
   m_Name: Hunter
   m_TagString: Untagged
@@ -445,6 +502,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 5175411143517161299}
   groupMovementManager: {fileID: 5175411144036252508}
+  attackStanceManager: {fileID: 0}
+--- !u!114 &3490013294400983999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5175411143517161297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e6195f6d8c78674cadfb996a4eed724, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementManager: {fileID: 5175411144036252508}
+  agents: []
+  isInattackStance: 0
 --- !u!1 &5175411144036252509
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,6 +564,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 0}
+  attackStanceManager: {fileID: 0}
   walkSpeed: 5
   runRange: 10
   runSpeed: 10
@@ -531,6 +605,7 @@ GameObject:
   - component: {fileID: 5175411144083095155}
   - component: {fileID: 5175411144083095152}
   - component: {fileID: 5175411144083095153}
+  - component: {fileID: 7273821512219999900}
   m_Layer: 0
   m_Name: Hunter (3)
   m_TagString: Untagged
@@ -653,6 +728,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 5175411144083095152}
   groupMovementManager: {fileID: 5175411144036252508}
+  attackStanceManager: {fileID: 0}
+--- !u!114 &7273821512219999900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5175411144083095158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e6195f6d8c78674cadfb996a4eed724, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementManager: {fileID: 5175411144036252508}
+  agents: []
+  isInattackStance: 0
 --- !u!1 &5175411144625724645
 GameObject:
   m_ObjectHideFlags: 0
@@ -667,6 +758,7 @@ GameObject:
   - component: {fileID: 5175411144625724646}
   - component: {fileID: 5175411144625724647}
   - component: {fileID: 5175411144625724644}
+  - component: {fileID: 7515230571040568446}
   m_Layer: 0
   m_Name: Hunter (2)
   m_TagString: Untagged
@@ -789,3 +881,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 5175411144625724647}
   groupMovementManager: {fileID: 5175411144036252508}
+  attackStanceManager: {fileID: 0}
+--- !u!114 &7515230571040568446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5175411144625724645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e6195f6d8c78674cadfb996a4eed724, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementManager: {fileID: 5175411144036252508}
+  agents: []
+  isInattackStance: 0

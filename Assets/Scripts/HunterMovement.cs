@@ -9,11 +9,13 @@ public class HunterMovement : MonoBehaviour
     [Header("Components")]
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private GroupMovement groupMovementManager;
+    [SerializeField] private AttackStanceManager attackStanceManager;
 
     private void Awake()
     {
         if (!agent) agent = GetComponent<NavMeshAgent>();
         Assert.IsNotNull(groupMovementManager);
+        if (!attackStanceManager) attackStanceManager = GetComponent<AttackStanceManager>();
     }
 
     private void Start()
@@ -31,10 +33,13 @@ public class HunterMovement : MonoBehaviour
 
             targetPosition = groupTargetPosition + offset;
 
-            agent.speed = groupMovementManager.GetSpeed();
             agent.ResetPath();
-            agent.SetDestination(targetPosition);
-            
+
+            if (!attackStanceManager.IsInAttackStance())
+            {
+                agent.speed = groupMovementManager.GetSpeed();
+                agent.SetDestination(targetPosition);
+            }
         }
     }
 }
