@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Assertions;
@@ -21,6 +22,29 @@ public class HunterMovement : MonoBehaviour
     private void Start()
     {
         groupMovementManager.getOnMouseRightClickEvent().AddListener(SetTargetPosition);
+        StartCoroutine(RegroupTimer());
+    }
+
+    private IEnumerator RegroupTimer()
+    {
+        yield return new WaitForSeconds(10f);
+        Regroup();
+    }
+
+    /**
+     *  Function that will handle the regrouping of the player units
+     */
+    private void Regroup()
+    {
+        print("REGROUPING");
+        agent.ResetPath();
+
+        if (!attackStanceManager.IsInAttackStance())
+        {
+            agent.speed = groupMovementManager.GetSpeed();
+            agent.SetDestination(groupMovementManager.gameObject.transform.position);
+        }
+        StartCoroutine(RegroupTimer());
     }
 
     private void SetTargetPosition()
