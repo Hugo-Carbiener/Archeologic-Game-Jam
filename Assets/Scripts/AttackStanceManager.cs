@@ -23,7 +23,7 @@ public class AttackStanceManager : MonoBehaviour
     private float attackAreaSize;
 
     [Header("States")]
-    [SerializeField] private bool isInattackStance = false;
+    [SerializeField] private bool isInAttackStance = false;
 
     private void Awake()
     {
@@ -55,7 +55,7 @@ public class AttackStanceManager : MonoBehaviour
         cam = Camera.main;
 
         attackPosition = Vector3.zero;
-        isInattackStance = false;
+        isInAttackStance = false;
     }
 
     private void Update()
@@ -68,7 +68,7 @@ public class AttackStanceManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (isInattackStance)
+        if (isInAttackStance)
         {
 
             // detect mouse position
@@ -87,24 +87,24 @@ public class AttackStanceManager : MonoBehaviour
                     {
                         attackPosition = mousePosition;
                     }
-                    attackAreaRangeIndicator.transform.position = attackPosition + new Vector3(0, 3, 0);
+                    attackAreaRangeIndicator.transform.position = attackPosition;
                     AttackAreaSizeInterpolation(attackPosition);
                     attackAreaRangeIndicator.transform.localScale = new Vector3(attackAreaSize * 2, attackAreaSize * 2, 1);
                 }
             }
+        }
 
-            if (Input.GetMouseButtonDown(0))
-            {
-                // instantiate sagaie
-                Instantiate(sphere, attackPosition);
-                InstantiateSagaie(attackPosition);
-            }
+        if (Input.GetMouseButtonDown(0) && isInAttackStance)
+        {
+            // instantiate sagaie
+                
+            InstantiateSagaie(attackPosition);
         }
     }
 
     private void ToggleAttackStance()
     {
-        isInattackStance = !isInattackStance;
+        isInAttackStance = !isInAttackStance;
         
         foreach(var agent in agents)
         {
@@ -112,14 +112,14 @@ public class AttackStanceManager : MonoBehaviour
         }
 
         // enable range indicator
-        if (isInattackStance && rangeIndicator)
+        if (isInAttackStance && rangeIndicator)
         {
             rangeIndicator.SetActive(true);
             rangeIndicator.transform.position = transform.position;
         }
 
         // enable attack area range indicator
-        if (isInattackStance && attackAreaRangeIndicator)
+        if (isInAttackStance && attackAreaRangeIndicator)
         {
             attackAreaRangeIndicator.SetActive(true);
         }
@@ -138,21 +138,22 @@ public class AttackStanceManager : MonoBehaviour
     private void InstantiateSagaie(Vector3 target)
     {
         // generate Random point in circle
-        float rdAngle = Random.Range(0, 360);
-        float rdRadius = Random.Range(0, attackAreaSize);
-        Vector3 endPoint = target + new Vector3(rdRadius * Mathf.Cos(rdAngle * Mathf.Deg2Rad), rdRadius * Mathf.Sin(rdAngle * Mathf.Deg2Rad));
+        //float rdAngle = Random.Range(0, 360);
+        //float rdRadius = Random.Range(0, attackAreaSize);
+        //Vector3 endPoint = target + new Vector3(rdRadius * Mathf.Cos(rdAngle * Mathf.Deg2Rad), rdRadius * Mathf.Sin(rdAngle * Mathf.Deg2Rad));
 
         // Instantiate sagaie and give variables for parabola
         GameObject sagaie = Instantiate(sagaiePrefab);
         Sagaie sagaieComponent = sagaie.GetComponent<Sagaie>();
 
         sagaieComponent.SetStartPoint(transform.position);
-        sagaieComponent.SetEndPoint(endPoint);
+        Instantiate(sphere, target, Quaternion.Euler(0, 0, 0));
+        sagaieComponent.SetEndPoint(target);
         sagaie.SetActive(true);
     }
 
     public bool IsInAttackStance()
     {
-        return isInattackStance;
+        return isInAttackStance;
     }
 }
