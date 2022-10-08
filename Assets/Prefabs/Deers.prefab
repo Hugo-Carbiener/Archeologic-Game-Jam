@@ -142,6 +142,8 @@ MonoBehaviour:
   timeBeforeTired: 0
   timeBeforeFixe: 5
   angleOfDeadEnd: 20
+  walkSpeed: 3
+  runSpeed: 6
   deadEnds: []
   targetPoints:
   - {fileID: 0}

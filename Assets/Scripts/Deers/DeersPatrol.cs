@@ -22,6 +22,8 @@ public class DeersPatrol : MonoBehaviour
     [SerializeField] float timeBeforeTired; //Temps avant que le renne s'épuise
     [SerializeField] float timeBeforeFixe; //Temps avant lequelle le renne se remet à suivre son chemin
     [SerializeField] float angleOfDeadEnd; //Angle pour aller dans un cul de sac
+    [SerializeField] float walkSpeed;
+    [SerializeField] float runSpeed;
 
     [SerializeField] private Transform[] deadEnds; //Liste cul de sac
     [SerializeField] private Transform[] targetPoints; //Liste point chemin
@@ -59,6 +61,7 @@ public class DeersPatrol : MonoBehaviour
                 agent.isStopped = true;
                 agent.ResetPath();
                 Stop?.Invoke();
+                agent.speed = runSpeed;
 
                 float relativePlayerAngularPosition = GetPlayerAngularPosition();
                 //sphere.transform.position = new Vector3(-20 * Mathf.Cos(Mathf.Deg2Rad*relativePlayerAngularPosition), transform.position.y,-20 * Mathf.Sin(Mathf.Deg2Rad * relativePlayerAngularPosition));
@@ -71,6 +74,7 @@ public class DeersPatrol : MonoBehaviour
                 }
                 break;
             case DeersState.FixeShifting:
+                agent.speed = walkSpeed;
                 agent.SetDestination(targetPoints[currentPoint].position);
                 VectorToDestination?.Invoke(targetPoints[currentPoint].position);
                 if (Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(targetPoints[currentPoint].position.x, targetPoints[currentPoint].position.z)) < 1.5f)
