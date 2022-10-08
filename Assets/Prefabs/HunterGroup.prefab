@@ -153,7 +153,7 @@ MonoBehaviour:
   agents: []
   attackAreaRangeIndicator: {fileID: 0}
   sagaiePrefab: {fileID: 8331086351120297723, guid: db93e530129fa754b87416375227dcbc, type: 3}
-  sphere: {fileID: 0}
+  sphere: {fileID: 5336340048464962673, guid: 7d8800fd9a6e00942b394e6fd036f737, type: 3}
   range: 10
   minAttackAreaSize: 0.5
   maxAttackAreaSize: 5
@@ -182,14 +182,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2311026994448769612}
-  m_LocalRotation: {x: 0.24751909, y: -0, z: -0, w: 0.96888304}
-  m_LocalPosition: {x: 0, y: 7.4, z: -9.14}
+  m_LocalRotation: {x: 0.27782974, y: -0, z: -0, w: 0.96063036}
+  m_LocalPosition: {x: 0, y: 9.1, z: -13.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5175411144036252511}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 28.662, y: 0, z: 0}
+  m_Father: {fileID: 5175411143212448554}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 32.261, y: 0, z: 0}
 --- !u!20 &4575302006275481102
 Camera:
   m_ObjectHideFlags: 0
@@ -386,7 +386,7 @@ MonoBehaviour:
   agents: []
   attackAreaRangeIndicator: {fileID: 0}
   sagaiePrefab: {fileID: 8331086351120297723, guid: db93e530129fa754b87416375227dcbc, type: 3}
-  sphere: {fileID: 0}
+  sphere: {fileID: 5336340048464962673, guid: 7d8800fd9a6e00942b394e6fd036f737, type: 3}
   range: 10
   minAttackAreaSize: 0.5
   maxAttackAreaSize: 5
@@ -544,7 +544,7 @@ MonoBehaviour:
   agents: []
   attackAreaRangeIndicator: {fileID: 0}
   sagaiePrefab: {fileID: 8331086351120297723, guid: db93e530129fa754b87416375227dcbc, type: 3}
-  sphere: {fileID: 0}
+  sphere: {fileID: 5336340048464962673, guid: 7d8800fd9a6e00942b394e6fd036f737, type: 3}
   range: 10
   minAttackAreaSize: 0.5
   maxAttackAreaSize: 5
@@ -702,7 +702,7 @@ MonoBehaviour:
   agents: []
   attackAreaRangeIndicator: {fileID: 0}
   sagaiePrefab: {fileID: 8331086351120297723, guid: db93e530129fa754b87416375227dcbc, type: 3}
-  sphere: {fileID: 0}
+  sphere: {fileID: 5336340048464962673, guid: 7d8800fd9a6e00942b394e6fd036f737, type: 3}
   range: 10
   minAttackAreaSize: 0.5
   maxAttackAreaSize: 5
@@ -860,7 +860,7 @@ MonoBehaviour:
   agents: []
   attackAreaRangeIndicator: {fileID: 0}
   sagaiePrefab: {fileID: 8331086351120297723, guid: db93e530129fa754b87416375227dcbc, type: 3}
-  sphere: {fileID: 0}
+  sphere: {fileID: 5336340048464962673, guid: 7d8800fd9a6e00942b394e6fd036f737, type: 3}
   range: 10
   minAttackAreaSize: 0.5
   maxAttackAreaSize: 5
@@ -905,6 +905,7 @@ Transform:
   - {fileID: 6709369348043838687}
   - {fileID: 465162287402515237}
   - {fileID: 3020371892846304419}
+  - {fileID: 4274538157565408170}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1113,7 +1114,7 @@ MonoBehaviour:
   agents: []
   attackAreaRangeIndicator: {fileID: 0}
   sagaiePrefab: {fileID: 8331086351120297723, guid: db93e530129fa754b87416375227dcbc, type: 3}
-  sphere: {fileID: 0}
+  sphere: {fileID: 5336340048464962673, guid: 7d8800fd9a6e00942b394e6fd036f737, type: 3}
   range: 10
   minAttackAreaSize: 0.5
   maxAttackAreaSize: 5
@@ -1152,8 +1153,7 @@ Transform:
   m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 4274538157565408170}
+  m_Children: []
   m_Father: {fileID: 5175411143212448554}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1222,7 +1222,7 @@ MonoBehaviour:
   - {fileID: 894850716814892984}
   attackAreaRangeIndicator: {fileID: 49704263574393989}
   sagaiePrefab: {fileID: 8331086351120297723, guid: db93e530129fa754b87416375227dcbc, type: 3}
-  sphere: {fileID: 0}
+  sphere: {fileID: 5336340048464962673, guid: 7d8800fd9a6e00942b394e6fd036f737, type: 3}
   range: 10
   minAttackAreaSize: 0.5
   maxAttackAreaSize: 5
@@ -1239,7 +1239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92d7efb2fa19ae347818cefb5137ac14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxStamina: 20
+  maxStamina: 500
   staminaWalkConsumptionRate: 0.8
   staminaRunConsumptionRate: 0.8
 --- !u!114 &6109909961327139878
@@ -1440,7 +1440,7 @@ MonoBehaviour:
   agents: []
   attackAreaRangeIndicator: {fileID: 0}
   sagaiePrefab: {fileID: 8331086351120297723, guid: db93e530129fa754b87416375227dcbc, type: 3}
-  sphere: {fileID: 0}
+  sphere: {fileID: 5336340048464962673, guid: 7d8800fd9a6e00942b394e6fd036f737, type: 3}
   range: 10
   minAttackAreaSize: 0.5
   maxAttackAreaSize: 5
