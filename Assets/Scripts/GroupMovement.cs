@@ -110,7 +110,7 @@ public class GroupMovement : MonoBehaviour
         {
             state = movementStates.walking;
             speed = walkSpeed;
-            audio.SetRunAudio();
+            audio.SetWalkAudio();
         }
 
         agent.speed = speed;
