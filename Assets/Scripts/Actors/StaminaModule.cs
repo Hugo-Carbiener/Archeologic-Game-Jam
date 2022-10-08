@@ -43,6 +43,18 @@ public class StaminaModule : MonoBehaviour
         }
     }
 
+    public void UpdateStamina(float value)
+    {
+        if (curStamina + value < maxStamina)
+        {
+            curStamina += value;
+        }
+        else
+        {
+            curStamina = maxStamina;
+        }
+    }
+
     /**
      *  Death function called when out of stamina
      */
