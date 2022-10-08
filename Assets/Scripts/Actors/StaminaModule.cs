@@ -31,7 +31,7 @@ public class StaminaModule : MonoBehaviour
 
     private void Update()
     {
-        playerMovementState = groupMovement.GetMovementStates();
+        playerMovementState = groupMovement.GetMovementState();
         if (playerMovementState == movementStates.walking)
         {
             curConsumptionRate = staminaWalkConsumptionRate;

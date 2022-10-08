@@ -22,7 +22,7 @@ public class AttackStanceManager : MonoBehaviour
     private float attackAreaSize;
 
     [Header("States")]
-    [SerializeField] public bool isInattackStance = false;
+    [SerializeField] public bool isInAttackStance = false;
 
     private PlayerReferencesController playerReferencesController;
 
@@ -48,7 +48,7 @@ public class AttackStanceManager : MonoBehaviour
         cam = Camera.main;
 
         attackPosition = Vector3.zero;
-        isInattackStance = false;
+        isInAttackStance = false;
 
         playerReferencesController = GetComponent<PlayerReferencesController>();
     }
@@ -63,7 +63,7 @@ public class AttackStanceManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        playerReferencesController.getUI().GetComponent<UiController>().UpdatesAttackStance(isInattackStance);
+        playerReferencesController.getUI().GetComponent<UiController>().UpdatesAttackStance(isInAttackStance);
         if (isInAttackStance)
         {
 
