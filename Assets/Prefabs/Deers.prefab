@@ -135,10 +135,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0df4dc0135d7274aaefe13a058cb450, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewRange: 10
+  viewRangeWhenRun: 20
+  viewRangeWhenWalk: 10
+  viewOfPlayer: 30
   fleeRange: 20
-  timeBeforetired: 0
+  timeBeforeTired: 0
   timeBeforeFixe: 5
+  angleOfDeadEnd: 20
+  deadEnds: []
   targetPoints:
   - {fileID: 0}
   - {fileID: 0}
@@ -160,11 +164,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 1698376968
-      Data2: 1231264287
-      Data3: 1574374570
-      Data4: -1037717577
-    Path: event:/Mammouth
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   Event: 
   PlayEvent: 1
   StopEvent: 2

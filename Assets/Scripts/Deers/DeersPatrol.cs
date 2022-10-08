@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,23 +15,30 @@ public enum DeersState
 }
 public class DeersPatrol : MonoBehaviour
 {
-    [SerializeField] float viewRange;
-    [SerializeField] float fleeRange;
-    [SerializeField] float timeBeforeTired;
-    [SerializeField] float timeBeforeFixe;
-    [SerializeField] float angleOfDeadEnd;
+    [SerializeField] float viewRangeWhenRun; //Distance à laquelle le renne voit le joueur qui court
+    [SerializeField] float viewRangeWhenWalk; //Distance à laquelle le renne voit le joueur qui marche
+    [SerializeField] float viewOfPlayer; //Distance à laquelle le joueur voit les rennes
+    [SerializeField] float fleeRange; //Distance à laquelle le renne fuit
+    [SerializeField] float timeBeforeTired; //Temps avant que le renne s'épuise
+    [SerializeField] float timeBeforeFixe; //Temps avant lequelle le renne se remet à suivre son chemin
+    [SerializeField] float angleOfDeadEnd; //Angle pour aller dans un cul de sac
 
-    [SerializeField] private Transform[] deadEnds;
-    [SerializeField] private Transform[] targetPoints;
-    private int currentPoint;
+    [SerializeField] private Transform[] deadEnds; //Liste cul de sac
+    [SerializeField] private Transform[] targetPoints; //Liste point chemin
+    private int currentPoint; //Point à atteindre
 
     private NavMeshAgent playerAgent;
     private GroupMovement groupMovement;
     NavMeshAgent agent;
 
+    private bool isViewBePlayer; //le joueur voit le renne
+
     private DeersState state;
 
     [SerializeField] GameObject sphere;
+
+    public static event Action<Vector3> VectorToDestination;
+    public static event Action Stop;
     void Start()
     {
         currentPoint = 0;
@@ -44,21 +52,27 @@ public class DeersPatrol : MonoBehaviour
     void Update()
     {
         print(state);
+        HumanSee();
         switch (state)
         {
             case DeersState.Fleeing:
                 agent.isStopped = true;
                 agent.ResetPath();
+                Stop?.Invoke();
+
                 float relativePlayerAngularPosition = GetPlayerAngularPosition();
                 //sphere.transform.position = new Vector3(-20 * Mathf.Cos(Mathf.Deg2Rad*relativePlayerAngularPosition), transform.position.y,-20 * Mathf.Sin(Mathf.Deg2Rad * relativePlayerAngularPosition));
-                agent.SetDestination(ChooseDestinationOfFleeing(relativePlayerAngularPosition));   
-                if(!SeeHuman())
+                agent.SetDestination(ChooseDestinationOfFleeing(relativePlayerAngularPosition));
+                VectorToDestination?.Invoke(ChooseDestinationOfFleeing(relativePlayerAngularPosition));
+
+                if (!SeeHuman())
                 {
                     state = DeersState.WaitingForReturnInFixe;
                 }
                 break;
             case DeersState.FixeShifting:
                 agent.SetDestination(targetPoints[currentPoint].position);
+                VectorToDestination?.Invoke(targetPoints[currentPoint].position);
                 if (Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(targetPoints[currentPoint].position.x, targetPoints[currentPoint].position.z)) < 1.5f)
                 {
                     currentPoint++;
@@ -69,11 +83,11 @@ public class DeersPatrol : MonoBehaviour
                 {
                     state = DeersState.Fleeing;
                 }
-
                 break;
             case DeersState.WaitingForReturnInFixe:
                 agent.isStopped = true;
                 agent.ResetPath();
+                Stop?.Invoke();
                 IEnumerator co = returnInFixe();
                 StartCoroutine(co);
                 if (SeeHuman())
@@ -112,11 +126,26 @@ public class DeersPatrol : MonoBehaviour
 
     private bool SeeHuman()
     {
+        float viewRange = 0;
+        if (groupMovement.GetMovementState() == movementStates.walking)
+        {
+           viewRange = viewRangeWhenWalk;
+        }
+        else { viewRange = viewRangeWhenRun; }
         if(Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(playerAgent.transform.position.x, playerAgent.transform.position.z)) < viewRange)
         {
             return true;
         }
         return false;
+    }
+
+    private void HumanSee()
+    {
+        if (Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(playerAgent.transform.position.x, playerAgent.transform.position.z)) < viewOfPlayer)
+        {
+            isViewBePlayer = true;
+        }
+        else { isViewBePlayer = false; }
     }
 
     private Vector3 ChooseDestinationOfFleeing(float relativePlayerAngularPosition)
@@ -133,12 +162,12 @@ public class DeersPatrol : MonoBehaviour
                 + Vector2.Distance(new Vector2(C.x, C.z), new Vector2(deadEnd.position.x, deadEnd.position.z));
             if(p/2f < distanceToEvaluate && distanceToEvaluate<p- minDistance.Min())
             {
-                print("lets gooooooooooooooooooooooooooooooooooooooooooo");
+
                 return new Vector3(deadEnd.position.x, transform.position.y, deadEnd.position.z);
             }
         }
-        return new Vector3(-fleeRange * Mathf.Cos(Mathf.Deg2Rad * relativePlayerAngularPosition), transform.position.y, -fleeRange * Mathf.Sin(Mathf.Deg2Rad * relativePlayerAngularPosition));
 
+        return new Vector3(-fleeRange * Mathf.Cos(Mathf.Deg2Rad * relativePlayerAngularPosition), transform.position.y, -fleeRange * Mathf.Sin(Mathf.Deg2Rad * relativePlayerAngularPosition));
 
     }
 

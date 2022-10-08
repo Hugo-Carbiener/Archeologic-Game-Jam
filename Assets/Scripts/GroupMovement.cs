@@ -120,4 +120,9 @@ public class GroupMovement : MonoBehaviour
     {
         return onMouseRightClick;
     }
+
+    public movementStates GetMovementState()
+    {
+        return state;
+    }
 }
