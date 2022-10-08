@@ -153,7 +153,7 @@ MonoBehaviour:
   agents: []
   attackAreaRangeIndicator: {fileID: 0}
   sagaiePrefab: {fileID: 8331086351120297723, guid: db93e530129fa754b87416375227dcbc, type: 3}
-  sphere: {fileID: 0}
+  sphere: {fileID: 5336340048464962673, guid: 7d8800fd9a6e00942b394e6fd036f737, type: 3}
   range: 10
   minAttackAreaSize: 0.5
   maxAttackAreaSize: 5
@@ -395,7 +395,7 @@ MonoBehaviour:
   agents: []
   attackAreaRangeIndicator: {fileID: 0}
   sagaiePrefab: {fileID: 8331086351120297723, guid: db93e530129fa754b87416375227dcbc, type: 3}
-  sphere: {fileID: 0}
+  sphere: {fileID: 5336340048464962673, guid: 7d8800fd9a6e00942b394e6fd036f737, type: 3}
   range: 10
   minAttackAreaSize: 0.5
   maxAttackAreaSize: 5
@@ -553,7 +553,7 @@ MonoBehaviour:
   agents: []
   attackAreaRangeIndicator: {fileID: 0}
   sagaiePrefab: {fileID: 8331086351120297723, guid: db93e530129fa754b87416375227dcbc, type: 3}
-  sphere: {fileID: 0}
+  sphere: {fileID: 5336340048464962673, guid: 7d8800fd9a6e00942b394e6fd036f737, type: 3}
   range: 10
   minAttackAreaSize: 0.5
   maxAttackAreaSize: 5
@@ -711,7 +711,7 @@ MonoBehaviour:
   agents: []
   attackAreaRangeIndicator: {fileID: 0}
   sagaiePrefab: {fileID: 8331086351120297723, guid: db93e530129fa754b87416375227dcbc, type: 3}
-  sphere: {fileID: 0}
+  sphere: {fileID: 5336340048464962673, guid: 7d8800fd9a6e00942b394e6fd036f737, type: 3}
   range: 10
   minAttackAreaSize: 0.5
   maxAttackAreaSize: 5
@@ -869,7 +869,7 @@ MonoBehaviour:
   agents: []
   attackAreaRangeIndicator: {fileID: 0}
   sagaiePrefab: {fileID: 8331086351120297723, guid: db93e530129fa754b87416375227dcbc, type: 3}
-  sphere: {fileID: 0}
+  sphere: {fileID: 5336340048464962673, guid: 7d8800fd9a6e00942b394e6fd036f737, type: 3}
   range: 10
   minAttackAreaSize: 0.5
   maxAttackAreaSize: 5
@@ -1122,7 +1122,7 @@ MonoBehaviour:
   agents: []
   attackAreaRangeIndicator: {fileID: 0}
   sagaiePrefab: {fileID: 8331086351120297723, guid: db93e530129fa754b87416375227dcbc, type: 3}
-  sphere: {fileID: 0}
+  sphere: {fileID: 5336340048464962673, guid: 7d8800fd9a6e00942b394e6fd036f737, type: 3}
   range: 10
   minAttackAreaSize: 0.5
   maxAttackAreaSize: 5
@@ -1227,7 +1227,7 @@ MonoBehaviour:
   - {fileID: 894850716814892984}
   attackAreaRangeIndicator: {fileID: 49704263574393989}
   sagaiePrefab: {fileID: 8331086351120297723, guid: db93e530129fa754b87416375227dcbc, type: 3}
-  sphere: {fileID: 0}
+  sphere: {fileID: 5336340048464962673, guid: 7d8800fd9a6e00942b394e6fd036f737, type: 3}
   range: 10
   minAttackAreaSize: 0.5
   maxAttackAreaSize: 5
@@ -1244,7 +1244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92d7efb2fa19ae347818cefb5137ac14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxStamina: 20
+  maxStamina: 500
   staminaWalkConsumptionRate: 0.8
   staminaRunConsumptionRate: 0.8
 --- !u!114 &6109909961327139878
@@ -1413,7 +1413,7 @@ MonoBehaviour:
   agents: []
   attackAreaRangeIndicator: {fileID: 0}
   sagaiePrefab: {fileID: 8331086351120297723, guid: db93e530129fa754b87416375227dcbc, type: 3}
-  sphere: {fileID: 0}
+  sphere: {fileID: 5336340048464962673, guid: 7d8800fd9a6e00942b394e6fd036f737, type: 3}
   range: 10
   minAttackAreaSize: 0.5
   maxAttackAreaSize: 5

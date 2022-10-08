@@ -53,7 +53,6 @@ public class DeersPatrol : MonoBehaviour
 
     void Update()
     {
-        print(state);
         HumanSee();
         switch (state)
         {
