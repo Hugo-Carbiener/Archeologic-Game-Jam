@@ -21,7 +21,10 @@ public class AttackStanceManager : MonoBehaviour
     private float attackAreaSize;
 
     [Header("States")]
-    [SerializeField] private bool isInattackStance = false;
+    [SerializeField] public bool isInattackStance = false;
+
+    private PlayerReferencesController playerReferencesController;
+
 
     private void Awake()
     {
@@ -52,6 +55,8 @@ public class AttackStanceManager : MonoBehaviour
 
         attackPosition = Vector3.zero;
         isInattackStance = false;
+
+        playerReferencesController = GetComponent<PlayerReferencesController>();
     }
 
     private void Update()
@@ -64,6 +69,9 @@ public class AttackStanceManager : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //enable attack symbol in UI
+        playerReferencesController.getUI().GetComponent<UiController>().UpdatesAttackStance(isInattackStance);
+
         if (isInattackStance && attackAreaRangeIndicator && rangeIndicator)
         {
             // detect mouse position
