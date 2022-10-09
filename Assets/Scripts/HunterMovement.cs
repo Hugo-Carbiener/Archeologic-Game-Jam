@@ -22,7 +22,7 @@ public class HunterMovement : MonoBehaviour
     private void Start()
     {
         groupMovementManager.getOnMouseRightClickEvent().AddListener(SetTargetPosition);
-        //StartCoroutine(RegroupTimer());
+        StartCoroutine(RegroupTimer());
     }
 
     private IEnumerator RegroupTimer()
