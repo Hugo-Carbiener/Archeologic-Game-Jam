@@ -31,6 +31,7 @@ public class StaminaModule : MonoBehaviour
 
     private void Update()
     {
+        AudioManager.i.ChangeStamina(curStamina, maxStamina);
         playerMovementState = groupMovement.GetMovementState();
         if (playerMovementState == movementStates.walking)
         {
@@ -68,6 +69,7 @@ public class StaminaModule : MonoBehaviour
 
     public void UpdateStamina(float value)
     {
+
         if (curStamina + value < maxStamina)
         {
             curStamina += value;
@@ -78,7 +80,8 @@ public class StaminaModule : MonoBehaviour
         {
             curStamina = maxStamina;
         }
-        AudioManager.i.ChangeStamina(curStamina, maxStamina);
+        
+        
     }
 
     /**
