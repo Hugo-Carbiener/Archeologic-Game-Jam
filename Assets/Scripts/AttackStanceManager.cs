@@ -18,6 +18,8 @@ public class AttackStanceManager : MonoBehaviour
     [SerializeField] private float range;
     [SerializeField] private float minAttackAreaSize;
     [SerializeField] private float maxAttackAreaSize;
+    [SerializeField] private float cooldownTimer;
+    private bool canThrow=true;
     private Vector3 attackPosition;
     private float attackAreaSize;
 
@@ -63,6 +65,7 @@ public class AttackStanceManager : MonoBehaviour
 
     private void FixedUpdate()
     {
+
         if (attackAreaRangeIndicator)
         {
             playerReferencesController.getUI().GetComponent<UiController>().UpdatesAttackStance(isInAttackStance);
@@ -79,6 +82,7 @@ public class AttackStanceManager : MonoBehaviour
 
                 if (attackAreaRangeIndicator)
                 {
+                    
                     // refresh the position of the attack, only if we aim in range 
                     float distance = Vector3.Distance(transform.position, mousePosition);
                     //Debug.Log("distance : " + distance);
@@ -89,7 +93,7 @@ public class AttackStanceManager : MonoBehaviour
                     attackAreaRangeIndicator.transform.position = attackPosition;
                     AttackAreaSizeInterpolation(attackPosition);
                     attackAreaRangeIndicator.transform.localScale = new Vector3(attackAreaSize * 2, attackAreaSize * 2, 1);
-                    if (Input.GetMouseButtonDown(0) && isInAttackStance)
+                    if (Input.GetMouseButtonDown(0) && isInAttackStance && canThrow)
                     {
                         foreach(var agent in agents)
                         {
@@ -97,10 +101,12 @@ public class AttackStanceManager : MonoBehaviour
                             float rdRadius = Random.Range(0, attackAreaSize);
                             Vector3 endPoint = new Vector3(rdRadius * Mathf.Cos(rdAngle * Mathf.Deg2Rad)+attackPosition.x,0, rdRadius * Mathf.Sin(rdAngle * Mathf.Deg2Rad)+attackPosition.z);
 
-                            InstantiateSagaie(endPoint);
+                            InstantiateSagaie(endPoint,agent);
 
                         }
+                        StartCoroutine(CooldownThrow());
                     }
+                    
                 }
             }
         }
@@ -139,7 +145,7 @@ public class AttackStanceManager : MonoBehaviour
         attackAreaSize = minAttackAreaSize * (1 - distance/range) + maxAttackAreaSize * (distance/range);
     }
 
-    private void InstantiateSagaie(Vector3 target)
+    private void InstantiateSagaie(Vector3 target,NavMeshAgent agent)
     {
         // generate Random point in circle
 
@@ -147,17 +153,8 @@ public class AttackStanceManager : MonoBehaviour
         GameObject sagaie = Instantiate(sagaiePrefab);
         Sagaie sagaieComponent = sagaie.GetComponent<Sagaie>();
 
-        sagaieComponent.SetStartPoint(transform.position);
+        sagaieComponent.SetStartPoint(agent.transform.position);
         sagaieComponent.SetEndPoint(target);
-        if (target.x > transform.position.x)
-        {
-            sagaieComponent.SetRotation(new Vector3(90, (-Mathf.Atan2(transform.position.x, target.z) * Mathf.Rad2Deg), 90));
-        }
-        else
-        {
-            sagaieComponent.SetRotation(new Vector3(90, (-Mathf.Atan2(transform.position.x, -target.z) * Mathf.Rad2Deg), 90));
-
-        }
 
         sagaie.SetActive(true);
     }
@@ -165,5 +162,12 @@ public class AttackStanceManager : MonoBehaviour
     public bool IsInAttackStance()
     {
         return isInAttackStance;
+    }
+
+    IEnumerator CooldownThrow()
+    {
+        canThrow = false;
+        yield return new WaitForSeconds(cooldownTimer);
+        canThrow = true;
     }
 }

@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f5da856cd9139a247b72521cd2c6cc84, type: 2}
+  - {fileID: 2100000, guid: ea0a02f87eee2b74d8336950fb18e8b6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -115,6 +115,7 @@ MonoBehaviour:
   indicator: {fileID: 5138158917221185417}
   _state: 0
   staminaRestoreValue: 200
+  type: baie
 --- !u!1 &5138158917221185417
 GameObject:
   m_ObjectHideFlags: 0

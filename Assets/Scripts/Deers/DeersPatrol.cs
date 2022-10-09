@@ -43,6 +43,8 @@ public class DeersPatrol : MonoBehaviour
 
     public static event Action<Vector3> VectorToDestination;
     public static event Action Stop;
+    public static event Action<float> ChangeSpeed;
+
     void Start()
     {
         currentPoint = 0;
@@ -64,6 +66,9 @@ public class DeersPatrol : MonoBehaviour
                 agent.ResetPath();
                 Stop?.Invoke();
                 agent.speed = runSpeed;
+
+                ChangeSpeed?.Invoke(runSpeed);
+
                 audio.SetRunAudio();
 
                 float relativePlayerAngularPosition = GetPlayerAngularPosition();
@@ -78,7 +83,10 @@ public class DeersPatrol : MonoBehaviour
                 break;
             case DeersState.FixeShifting:
                 agent.speed = walkSpeed;
+                ChangeSpeed?.Invoke(walkSpeed);
+
                 audio.SetWalkAudio();
+
                 agent.SetDestination(targetPoints[currentPoint].position);
                 VectorToDestination?.Invoke(targetPoints[currentPoint].position);
                 if (Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(targetPoints[currentPoint].position.x, targetPoints[currentPoint].position.z)) < 1.5f)

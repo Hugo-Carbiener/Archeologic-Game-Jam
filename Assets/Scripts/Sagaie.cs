@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using static UnityEngine.GraphicsBuffer;
 
 public enum SagaieState
 {
@@ -26,8 +27,7 @@ public class Sagaie : MonoBehaviour
         state = SagaieState.inGround;
 
         StartCoroutine(Fly(start, end));
-        print("start " + start);
-        print("end " + end);
+
     }
 
     public static Vector3 Parabola(Vector3 start, Vector3 end, float height, float t)
@@ -45,6 +45,18 @@ public class Sagaie : MonoBehaviour
         state = SagaieState.midAir;
 
         float animation = 0f;
+        if (end.x < transform.position.x)
+        {
+            transform.rotation = Quaternion.Euler(-(end.x - transform.position.x) / Mathf.Abs(end.x - transform.position.x) * 90f, 0, -(end.z - transform.position.z) / Mathf.Abs(end.z - transform.position.z) * 90f)
+            *Quaternion.LookRotation(end - transform.position, Vector3.up);
+
+        }
+        else
+        {
+            transform.rotation = Quaternion.LookRotation(end - transform.position, Vector3.up) *
+    Quaternion.Euler(-(end.x - transform.position.x) / Mathf.Abs(end.x - transform.position.x) * 90f, 0, -(end.z - transform.position.z) / Mathf.Abs(end.z - transform.position.z) * 90f);
+        }
+
 
         while (animation < duration)
         {
@@ -52,7 +64,7 @@ public class Sagaie : MonoBehaviour
 
             //lancement du joueur selon une parabole
             transform.position = Parabola(start, finish, duration, animation / duration);
-
+ 
             yield return null;
         }
 
@@ -74,5 +86,18 @@ public class Sagaie : MonoBehaviour
     public void SetRotation(Vector3 rotation)
     {
         transform.Rotate(rotation);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Deer")
+        {
+            print("bah voila");
+        }
+    }
+
+    private void Update()
+    {
+
     }
 }
