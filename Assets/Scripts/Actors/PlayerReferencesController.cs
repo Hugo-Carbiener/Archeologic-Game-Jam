@@ -12,7 +12,7 @@ public class PlayerReferencesController : MonoBehaviour
     [SerializeField] private GameObject ui;
     public GameObject getUI() { return ui; }
 
-    private StaminaModule stamina;
+    [SerializeField] private StaminaModule stamina;
     public StaminaModule getStamina() { return stamina; }
 
     private void Awake()

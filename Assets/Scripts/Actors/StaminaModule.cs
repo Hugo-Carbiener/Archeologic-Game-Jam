@@ -82,7 +82,7 @@ public class StaminaModule : MonoBehaviour
      *  Death function called when out of stamina
      */
     private void Death()
-    {
-        //Destroy(gameObject);
+    { 
+        AudioManager.SetDeerAudioState(deerStates.Dead);
     }
 }
