@@ -90,7 +90,7 @@ public class AttackStanceManager : MonoBehaviour
                     {
                         attackPosition = mousePosition;
                     }
-                    attackAreaRangeIndicator.transform.position = attackPosition;
+                    attackAreaRangeIndicator.transform.position = attackPosition+new Vector3(0,1,0);
                     AttackAreaSizeInterpolation(attackPosition);
                     attackAreaRangeIndicator.transform.localScale = new Vector3(attackAreaSize * 2, attackAreaSize * 2, 1);
                     if (Input.GetMouseButtonDown(0) && isInAttackStance && canThrow)
