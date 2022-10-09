@@ -83,6 +83,7 @@ public class StaminaModule : MonoBehaviour
      */
     private void Death()
     {
-        Destroy(gameObject);
+        AudioManager.SetDeerAudioState(deerStates.Dead);
+        //Destroy(gameObject);
     }
 }
