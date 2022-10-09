@@ -11,6 +11,7 @@ public class FruitsController : InteractableController
 {
     [Header("Fruits & Fishes variables")]
     [SerializeField] private float staminaRestoreValue;
+    [SerializeField] private string type;
 
     /**
      *  Function inherited from Interactable Controller, called when interacting with object.
@@ -23,6 +24,16 @@ public class FruitsController : InteractableController
             if (collider.transform.tag == "Player")
             {
                 collider.GetComponent<PlayerReferencesController>().getStamina().UpdateStamina(staminaRestoreValue);
+                if (type == "baie")
+                {
+                    AudioManager.i.SoundOfBaie();
+
+                }
+                else
+                {
+                    AudioManager.i.SoundOfPoisson();
+                }
+
             }
         }
         Destroy(gameObject);

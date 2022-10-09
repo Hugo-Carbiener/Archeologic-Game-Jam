@@ -16,10 +16,13 @@ public class AudioManager : MonoBehaviour
 
     private FMOD.Studio.EventInstance instance;
     private FMOD.Studio.EventInstance indiceInstance;
+    private FMOD.Studio.EventInstance baieInstance;
+    private FMOD.Studio.EventInstance poissonInstance;
 
     public FMODUnity.EventReference fmodMusicEvent;
     public FMODUnity.EventReference fmodIndiceEvent;
-
+    public FMODUnity.EventReference fmodBaieEvent;
+    public FMODUnity.EventReference fmodPoissonEvent;
 
     private int indiceAmount = 1;
 
@@ -35,6 +38,8 @@ public class AudioManager : MonoBehaviour
         instance = FMODUnity.RuntimeManager.CreateInstance(fmodMusicEvent);
         instance.start();
         indiceInstance= FMODUnity.RuntimeManager.CreateInstance(fmodIndiceEvent);
+        poissonInstance= FMODUnity.RuntimeManager.CreateInstance(fmodPoissonEvent);
+        baieInstance = FMODUnity.RuntimeManager.CreateInstance(fmodBaieEvent);
     }
 
     public void AddIndice()
@@ -66,5 +71,15 @@ public class AudioManager : MonoBehaviour
     public void SoundOfIndice()
     {
         i.indiceInstance.start();
+    }
+
+    public void SoundOfBaie()
+    {
+        i.baieInstance.start();
+    }
+
+    public void SoundOfPoisson()
+    {
+        i.poissonInstance.start();
     }
 }
