@@ -71,19 +71,21 @@ public class StaminaModule : MonoBehaviour
         if (curStamina + value < maxStamina)
         {
             curStamina += value;
+            
+
         }
         else
         {
             curStamina = maxStamina;
         }
+        AudioManager.i.ChangeStamina(curStamina, maxStamina);
     }
 
     /**
      *  Death function called when out of stamina
      */
     private void Death()
-    {
+    { 
         AudioManager.SetDeerAudioState(deerStates.Dead);
-        //Destroy(gameObject);
     }
 }

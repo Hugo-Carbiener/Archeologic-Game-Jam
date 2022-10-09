@@ -1,0 +1,89 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1327370605233781055
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1327370605233781041}
+  - component: {fileID: 1327370605233781054}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1327370605233781041
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327370605233781055}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.180638, y: 1.3694539, z: 7.274881}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1327370605233781054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327370605233781055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cf55d03c9aef2f48ae983ce9d0841cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fmodMusicEvent:
+    Guid:
+      Data1: -354596944
+      Data2: 1319474853
+      Data3: -1562982990
+      Data4: 171933359
+    Path: event:/Music
+  fmodIndiceEvent:
+    Guid:
+      Data1: -1345225553
+      Data2: 1227702880
+      Data3: 2058983075
+      Data4: 1142529570
+    Path: event:/INTERACT/indices
+  fmodBaieEvent:
+    Guid:
+      Data1: 1562860513
+      Data2: 1337987444
+      Data3: -440245835
+      Data4: 1209023443
+    Path: event:/INTERACT/Baie
+  fmodPoissonEvent:
+    Guid:
+      Data1: -200402916
+      Data2: 1241150739
+      Data3: 1220526227
+      Data4: -1416077960
+    Path: event:/INTERACT/Fish
+  fmodheartBeatEvent:
+    Guid:
+      Data1: 408717810
+      Data2: 1191551107
+      Data3: 1551979437
+      Data4: 1089061476
+    Path: event:/uI/Heartbeat
+  fmodmenuclickEvent:
+    Guid:
+      Data1: 418521411
+      Data2: 1179924051
+      Data3: -1370193746
+      Data4: -1976033665
+    Path: event:/uI/MenuClic
+  deathMusicIsPlaying: 0
