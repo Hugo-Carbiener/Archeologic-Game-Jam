@@ -36,7 +36,6 @@ public class HunterMovement : MonoBehaviour
      */
     private void Regroup()
     {
-        print("REGROUPING");
         agent.ResetPath();
 
         if (!attackStanceManager.IsInAttackStance())
