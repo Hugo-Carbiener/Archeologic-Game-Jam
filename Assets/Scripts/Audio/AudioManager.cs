@@ -70,7 +70,7 @@ public class AudioManager : MonoBehaviour
 
     public void ChangeStamina(float stamina, float maxStamina)
     {
-        heartBeatInstance.setParameterByName("Stamina", stamina/maxStamina);
+        heartBeatInstance.setParameterByName("StaminaNew", stamina/maxStamina);
     }
 
     public static void SetDeerAudioState(deerStates state)

@@ -32,6 +32,13 @@ public class UiController : MonoBehaviour
         Assert.IsNotNull(staminaBar);
         Assert.IsNotNull(attackSymbol);
         state = stateGame.start;
+
+        Sagaie.endGame += Win;
+    }
+
+    private void OnDestroy()
+    {
+        Sagaie.endGame -= Win;
     }
 
 
@@ -74,7 +81,6 @@ public class UiController : MonoBehaviour
     {
         if (state == stateGame.start)
         {
-            print("ahah");
             UIOfGame.SetActive(false);
             UIOfLost.SetActive(false);
             UIOfStart.SetActive(true);
@@ -106,5 +112,10 @@ public class UiController : MonoBehaviour
             UIOfWin.SetActive(false);
             Time.timeScale = 0;
         }
+    }
+
+    public void Win()
+    {
+        state = stateGame.win;
     }
 }
