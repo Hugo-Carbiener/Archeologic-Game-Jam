@@ -54,8 +54,8 @@ public class IndicesControllers : InteractableController
         if(animalGroup!=null)
         {
             //PLAY SOUND FROM THE ANIMAL GROUP
-            animalGroup.GetComponent<AudioController>().PlaySound();
-            print("IndicesController.LifeTimer() : Playing sound at aniamlGroup.AudioController");
+            //animalGroup.GetComponent<AudioController>().PlaySound();
+            //print("IndicesController.LifeTimer() : Playing sound at aniamlGroup.AudioController");
             //WAIT FOR SOUND TO END
             Destroy(gameObject);
         }

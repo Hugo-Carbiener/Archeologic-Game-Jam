@@ -26,8 +26,6 @@ public class Sagaie : MonoBehaviour
         state = SagaieState.inGround;
 
         StartCoroutine(Fly(start, end));
-        print("start " + start);
-        print("end " + end);
     }
 
     public static Vector3 Parabola(Vector3 start, Vector3 end, float height, float t)
@@ -74,5 +72,10 @@ public class Sagaie : MonoBehaviour
     public void SetRotation(Vector3 rotation)
     {
         transform.Rotate(rotation);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        print("broooooooooooooooo");
     }
 }

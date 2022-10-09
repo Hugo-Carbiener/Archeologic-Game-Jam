@@ -157,6 +157,7 @@ MonoBehaviour:
   range: 10
   minAttackAreaSize: 0.5
   maxAttackAreaSize: 5
+  cooldownTimer: 3
   isInAttackStance: 0
 --- !u!1 &2311026994448769612
 GameObject:
@@ -413,6 +414,7 @@ MonoBehaviour:
   range: 10
   minAttackAreaSize: 0.5
   maxAttackAreaSize: 5
+  cooldownTimer: 3
   isInAttackStance: 0
 --- !u!1 &3598072581394653879
 GameObject:
@@ -571,6 +573,7 @@ MonoBehaviour:
   range: 10
   minAttackAreaSize: 0.5
   maxAttackAreaSize: 5
+  cooldownTimer: 3
   isInAttackStance: 0
 --- !u!1 &4611024739273798449
 GameObject:
@@ -729,6 +732,7 @@ MonoBehaviour:
   range: 10
   minAttackAreaSize: 0.5
   maxAttackAreaSize: 5
+  cooldownTimer: 3
   isInAttackStance: 0
 --- !u!1 &5074352145689955964
 GameObject:
@@ -887,6 +891,7 @@ MonoBehaviour:
   range: 10
   minAttackAreaSize: 0.5
   maxAttackAreaSize: 5
+  cooldownTimer: 3
   isInAttackStance: 0
 --- !u!1 &5175411143212448555
 GameObject:
@@ -1141,6 +1146,7 @@ MonoBehaviour:
   range: 10
   minAttackAreaSize: 0.5
   maxAttackAreaSize: 5
+  cooldownTimer: 3
   isInAttackStance: 0
 --- !u!1 &5175411144036252509
 GameObject:
@@ -1245,6 +1251,7 @@ MonoBehaviour:
   range: 10
   minAttackAreaSize: 0.5
   maxAttackAreaSize: 5
+  cooldownTimer: 3
   isInAttackStance: 0
 --- !u!114 &3861919976968343774
 MonoBehaviour:
@@ -1431,6 +1438,7 @@ MonoBehaviour:
   range: 10
   minAttackAreaSize: 0.5
   maxAttackAreaSize: 5
+  cooldownTimer: 3
   isInAttackStance: 0
 --- !u!1001 &974354394276770784
 PrefabInstance:

@@ -41,6 +41,8 @@ public class DeersPatrol : MonoBehaviour
 
     public static event Action<Vector3> VectorToDestination;
     public static event Action Stop;
+    public static event Action<float> ChangeSpeed;
+
     void Start()
     {
         currentPoint = 0;
@@ -61,7 +63,7 @@ public class DeersPatrol : MonoBehaviour
                 agent.ResetPath();
                 Stop?.Invoke();
                 agent.speed = runSpeed;
-
+                ChangeSpeed?.Invoke(runSpeed);
                 float relativePlayerAngularPosition = GetPlayerAngularPosition();
                 //sphere.transform.position = new Vector3(-20 * Mathf.Cos(Mathf.Deg2Rad*relativePlayerAngularPosition), transform.position.y,-20 * Mathf.Sin(Mathf.Deg2Rad * relativePlayerAngularPosition));
                 agent.SetDestination(ChooseDestinationOfFleeing(relativePlayerAngularPosition));
@@ -74,6 +76,7 @@ public class DeersPatrol : MonoBehaviour
                 break;
             case DeersState.FixeShifting:
                 agent.speed = walkSpeed;
+                ChangeSpeed?.Invoke(walkSpeed);
                 agent.SetDestination(targetPoints[currentPoint].position);
                 VectorToDestination?.Invoke(targetPoints[currentPoint].position);
                 if (Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(targetPoints[currentPoint].position.x, targetPoints[currentPoint].position.z)) < 1.5f)
