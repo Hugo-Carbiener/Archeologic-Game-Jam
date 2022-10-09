@@ -83,6 +83,6 @@ public class StaminaModule : MonoBehaviour
      */
     private void Death()
     {
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 }

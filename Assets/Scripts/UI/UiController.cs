@@ -40,6 +40,11 @@ public class UiController : MonoBehaviour
     public void UpdateStaminaBar(float value)
     {
         staminaBar.value = value;
+        if (value == 0)
+        {
+
+            state = stateGame.lost;
+        }
     }
 
     /**

@@ -1265,7 +1265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92d7efb2fa19ae347818cefb5137ac14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxStamina: 500
+  maxStamina: 10
   staminaWalkConsumptionRate: 0.8
   staminaRunConsumptionRate: 0.8
 --- !u!114 &6109909961327139878
