@@ -1,5 +1,32 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8844182934466957680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/AMBS/River
+  m_EditorClassIdentifier: 
+  Path: event:/AMBS/River
+  Guid:
+    Data1: -100577401
+    Data2: 1241353722
+    Data3: 1508097690
+    Data4: -1448482663
+  Banks:
+  - {fileID: -8316846943098828849}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 73566
 --- !u!114 &-8316846943098828849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,7 +42,7 @@ MonoBehaviour:
   Path: Assets/AudioBuild/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638009205329384563
+  lastModified: 638009228355313555
   FileSizes: []
   Exists: 1
 --- !u!114 &-8269761295634216691
@@ -271,10 +298,10 @@ MonoBehaviour:
   Path: Assets/AudioBuild/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638009205327818647
+  lastModified: 638009228353645675
   FileSizes:
   - Name: 
-    Value: 1902
+    Value: 1994
   Exists: 1
 --- !u!114 &-1861835396929739676
 MonoBehaviour:
@@ -327,13 +354,13 @@ MonoBehaviour:
   - {fileID: 7262248049053474349}
   - {fileID: -7769140624917514594}
   - {fileID: 5176271007032845455}
-  EditorParameters:
-  - {fileID: 5090457549612545351}
+  - {fileID: -8844182934466957680}
+  EditorParameters: []
   MasterBanks:
   - {fileID: -8316846943098828849}
   StringsBanks:
   - {fileID: -2258014938212348639}
-  cacheTime: 638009205329384563
+  cacheTime: 638009228355313555
   cacheVersion: 131593
 --- !u!114 &657192962136892718
 MonoBehaviour:
@@ -548,30 +575,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 41160
---- !u!114 &5090457549612545351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Stamina
-  m_EditorClassIdentifier: 
-  Name: Stamina
-  StudioPath: parameter:/Stamina
-  Min: 0
-  Max: 1
-  Default: 1
-  ID:
-    data1: 1608539153
-    data2: 709352857
-  Type: 0
-  IsGlobal: 1
-  Labels: []
-  Exists: 1
 --- !u!114 &5176271007032845455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -596,11 +599,11 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 5796310004856358702}
+  - {fileID: 6684392602575935219}
   MinDistance: 1
   MaxDistance: 20
   Length: 18000
---- !u!114 &5796310004856358702
+--- !u!114 &6684392602575935219
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -610,18 +613,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Heartbeat/Stamina
+  m_Name: parameter:/Heartbeat/StaminaNew
   m_EditorClassIdentifier: 
-  Name: Stamina
+  Name: StaminaNew
   StudioPath: 
   Min: 0
   Max: 1
   Default: 1
   ID:
-    data1: 1608539153
-    data2: 709352857
+    data1: 3175364143
+    data2: 3087878358
   Type: 0
-  IsGlobal: 1
+  IsGlobal: 0
   Labels: []
   Exists: 1
 --- !u!114 &7063796364657223942
