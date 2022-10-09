@@ -78,6 +78,7 @@ public class GroupMovement : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit, 100))
         {
+            Debug.Log("raycast hit");
             orderIsValid = true;
             
             leaderTargetPosition = hit.point;

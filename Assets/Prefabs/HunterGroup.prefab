@@ -1134,8 +1134,7 @@ Transform:
   m_LocalPosition: {x: 0, y: -0.44, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 4018276128014721277}
+  m_Children: []
   m_Father: {fileID: 5175411143212448554}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1296,7 +1295,8 @@ Transform:
   m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4018276128014721277}
   m_Father: {fileID: 5175411143212448554}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1315,10 +1315,11 @@ MonoBehaviour:
   agent: {fileID: 5175411144036252510}
   attackStanceManager: {fileID: 8743345522613566569}
   audio: {fileID: 0}
+  spehre: {fileID: 5336340048464962673, guid: 7d8800fd9a6e00942b394e6fd036f737, type: 3}
   walkSpeed: 5
   runRange: 10
   runSpeed: 10
-  stoppingDistance: 2
+  stoppingDistance: 5
   state: 0
 --- !u!195 &5175411144036252510
 NavMeshAgent:
@@ -1837,7 +1838,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 5175411143517161311}
+    m_TransformParent: {fileID: 5175411144036252511}
     m_Modifications:
     - target: {fileID: 8366493660291613060, guid: 81b1955d9281e1243a16c58e93ec3f0e, type: 3}
       propertyPath: m_RootOrder
@@ -1861,7 +1862,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8366493660291613060, guid: 81b1955d9281e1243a16c58e93ec3f0e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.8
+      value: -0.24000001
       objectReference: {fileID: 0}
     - target: {fileID: 8366493660291613060, guid: 81b1955d9281e1243a16c58e93ec3f0e, type: 3}
       propertyPath: m_LocalPosition.z
