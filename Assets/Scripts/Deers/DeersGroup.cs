@@ -12,6 +12,7 @@ public class DeersGroup : MonoBehaviour
         DeersPatrol.VectorToDestination += GoToo;
         DeersPatrol.Stop += OnStop;
         DeersPatrol.ChangeSpeed += ChangeSpeed;
+        Sagaie.endGame += Die;
         agent = GetComponent<NavMeshAgent>();
     }
     private void OnDestroy()
@@ -19,12 +20,12 @@ public class DeersGroup : MonoBehaviour
         DeersPatrol.VectorToDestination -= GoToo;
         DeersPatrol.Stop -= OnStop;
         DeersPatrol.ChangeSpeed -= ChangeSpeed;
+        Sagaie.endGame -= Die;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Die()
     {
-        
+        OnStop();
     }
 
     private void ChangeSpeed(float speed)

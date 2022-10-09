@@ -44,6 +44,22 @@ public class DeersPatrol : MonoBehaviour
     public static event Action<Vector3> VectorToDestination;
     public static event Action Stop;
     public static event Action<float> ChangeSpeed;
+    private void Awake()
+    {
+        Sagaie.endGame += OnStop;
+
+    }
+
+    private void OnDestroy()
+    {
+        Sagaie.endGame -= OnStop;
+    }
+
+    private void OnStop()
+    {
+        agent.isStopped = true;
+        agent.ResetPath();
+    }
 
     void Start()
     {

@@ -102,6 +102,7 @@ public class UiController : MonoBehaviour
             UIOfLost.SetActive(false);
             UIOfStart.SetActive(false);
             UIOfWin.SetActive(true);
+            print("j'ai gagné");
             Time.timeScale = 0;
         }
         if (state == stateGame.lost)

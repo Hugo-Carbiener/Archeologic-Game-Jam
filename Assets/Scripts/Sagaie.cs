@@ -93,7 +93,7 @@ public class Sagaie : MonoBehaviour
     {
         if (other.tag == "Deer")
         {
-            
+            StartCoroutine(CooldownEndGame());
         }
     }
 
