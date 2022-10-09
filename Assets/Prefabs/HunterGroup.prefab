@@ -225,7 +225,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 247
+    m_Bits: 1783
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1315,7 +1315,6 @@ MonoBehaviour:
   agent: {fileID: 5175411144036252510}
   attackStanceManager: {fileID: 8743345522613566569}
   audio: {fileID: 0}
-  spehre: {fileID: 5336340048464962673, guid: 7d8800fd9a6e00942b394e6fd036f737, type: 3}
   walkSpeed: 5
   runRange: 10
   runSpeed: 10
