@@ -17,6 +17,7 @@ public class Sagaie : MonoBehaviour
     private Vector3 start;
     private Vector3 end;
     private SagaieState state;
+    public static event Action endGame;
 
     private void Awake()
     {
@@ -92,12 +93,14 @@ public class Sagaie : MonoBehaviour
     {
         if (other.tag == "Deer")
         {
-            print("bah voila");
+            
         }
     }
 
-    private void Update()
+    IEnumerator CooldownEndGame()
     {
+        yield return new WaitForSeconds(2);
+        endGame?.Invoke();
 
     }
 }
