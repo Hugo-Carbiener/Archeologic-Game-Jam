@@ -170,6 +170,7 @@ GameObject:
   - component: {fileID: 4274538157565408170}
   - component: {fileID: 4575302006275481102}
   - component: {fileID: 6268766967041917339}
+  - component: {fileID: 2815220684071189634}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -248,6 +249,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   group: {fileID: 5175411144036252509}
+--- !u!114 &2815220684071189634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2311026994448769612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 794176443
+      Data2: 1107115035
+      Data3: -1689664081
+      Data4: 1581734421
+    Path: event:/AMBS/Ambs
+  Event: 
+  PlayEvent: 1
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &3214127720002256960
 GameObject:
   m_ObjectHideFlags: 0

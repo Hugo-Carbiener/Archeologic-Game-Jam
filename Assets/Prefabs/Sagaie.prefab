@@ -64,11 +64,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -1119096270
-      Data2: 1130540498
-      Data3: 320087198
-      Data4: 319407812
-    Path: event:/FTS/Pelos/Pelos_Dirt
+      Data1: -1980042166
+      Data2: 1112755239
+      Data3: -1568521596
+      Data4: -90241099
+    Path: event:/units/Pelos/sagaie_launch
   Event: 
   PlayEvent: 1
   StopEvent: 0

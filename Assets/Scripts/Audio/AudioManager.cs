@@ -15,8 +15,11 @@ public class AudioManager : MonoBehaviour
     public static AudioManager i { get; private set; }
 
     private FMOD.Studio.EventInstance instance;
+    private FMOD.Studio.EventInstance indiceInstance;
 
     public FMODUnity.EventReference fmodMusicEvent;
+    public FMODUnity.EventReference fmodIndiceEvent;
+
 
     private int indiceAmount = 1;
 
@@ -31,6 +34,7 @@ public class AudioManager : MonoBehaviour
 
         instance = FMODUnity.RuntimeManager.CreateInstance(fmodMusicEvent);
         instance.start();
+        indiceInstance= FMODUnity.RuntimeManager.CreateInstance(fmodIndiceEvent);
     }
 
     public void AddIndice()
@@ -58,4 +62,9 @@ public class AudioManager : MonoBehaviour
             i.deathMusicIsPlaying = true;
         }
     } 
+
+    public void SoundOfIndice()
+    {
+        i.indiceInstance.start();
+    }
 }

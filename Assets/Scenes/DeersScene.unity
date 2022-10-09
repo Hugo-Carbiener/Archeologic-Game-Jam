@@ -1127,6 +1127,13 @@ MonoBehaviour:
       Data3: -1562982990
       Data4: 171933359
     Path: event:/Music
+  fmodIndiceEvent:
+    Guid:
+      Data1: -1345225553
+      Data2: 1227702880
+      Data3: 2058983075
+      Data4: 1142529570
+    Path: event:/INTERACT/indices
   deathMusicIsPlaying: 0
 --- !u!4 &1336109320
 Transform:

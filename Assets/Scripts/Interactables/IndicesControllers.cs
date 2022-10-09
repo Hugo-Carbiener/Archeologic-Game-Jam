@@ -34,6 +34,7 @@ public class IndicesControllers : InteractableController
             AudioManager.i.AddIndice();
             indice.transform.rotation = groupRotation;
             indice.gameObject.SetActive(true);
+            AudioManager.i.SoundOfIndice();
         }
     }
 
