@@ -18,11 +18,17 @@ public class AudioManager : MonoBehaviour
     private FMOD.Studio.EventInstance indiceInstance;
     private FMOD.Studio.EventInstance baieInstance;
     private FMOD.Studio.EventInstance poissonInstance;
+    private FMOD.Studio.EventInstance heartBeatInstance;
+    private FMOD.Studio.EventInstance menuClickInstance;
+
 
     public FMODUnity.EventReference fmodMusicEvent;
     public FMODUnity.EventReference fmodIndiceEvent;
     public FMODUnity.EventReference fmodBaieEvent;
     public FMODUnity.EventReference fmodPoissonEvent;
+    public FMODUnity.EventReference fmodheartBeatEvent;
+    public FMODUnity.EventReference fmodmenuclickEvent;
+
 
     private int indiceAmount = 1;
 
@@ -40,6 +46,9 @@ public class AudioManager : MonoBehaviour
         indiceInstance= FMODUnity.RuntimeManager.CreateInstance(fmodIndiceEvent);
         poissonInstance= FMODUnity.RuntimeManager.CreateInstance(fmodPoissonEvent);
         baieInstance = FMODUnity.RuntimeManager.CreateInstance(fmodBaieEvent);
+        heartBeatInstance= FMODUnity.RuntimeManager.CreateInstance(fmodheartBeatEvent);
+        heartBeatInstance.start();
+        menuClickInstance = FMODUnity.RuntimeManager.CreateInstance(fmodmenuclickEvent);
     }
 
     public void AddIndice()
@@ -57,6 +66,11 @@ public class AudioManager : MonoBehaviour
         Debug.Log(indiceAmount);
 
         instance.setParameterByName("Indices", indiceAmount);
+    }
+
+    public void ChangeStamina(float stamina, float maxStamina)
+    {
+        heartBeatInstance.setParameterByName("Stamina", stamina/maxStamina);
     }
 
     public static void SetDeerAudioState(deerStates state)
@@ -82,4 +96,10 @@ public class AudioManager : MonoBehaviour
     {
         i.poissonInstance.start();
     }
+
+    public void SoundClick()
+    {
+        i.menuClickInstance.start();
+    }
+
 }

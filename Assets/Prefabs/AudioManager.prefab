@@ -72,4 +72,18 @@ MonoBehaviour:
       Data3: 1220526227
       Data4: -1416077960
     Path: event:/INTERACT/Fish
+  fmodheartBeatEvent:
+    Guid:
+      Data1: 408717810
+      Data2: 1191551107
+      Data3: 1551979437
+      Data4: 1089061476
+    Path: event:/uI/Heartbeat
+  fmodmenuclickEvent:
+    Guid:
+      Data1: 418521411
+      Data2: 1179924051
+      Data3: -1370193746
+      Data4: -1976033665
+    Path: event:/uI/MenuClic
   deathMusicIsPlaying: 0

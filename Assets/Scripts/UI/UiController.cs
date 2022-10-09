@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UI;
+using static UnityEngine.Rendering.DebugUI;
 
 /**
  *      Component used by the UI prefab
@@ -40,6 +41,7 @@ public class UiController : MonoBehaviour
     public void UpdateStaminaBar(float value)
     {
         staminaBar.value = value;
+
         if (value == 0)
         {
 
@@ -65,7 +67,8 @@ public class UiController : MonoBehaviour
     public void GoInGame()
     {
         state = stateGame.ingame;
-    }
+        AudioManager.i.SoundClick();
+        }
 
     private void Update()
     {
