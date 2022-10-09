@@ -155,15 +155,6 @@ public class AttackStanceManager : MonoBehaviour
 
         sagaieComponent.SetStartPoint(agent.transform.position);
         sagaieComponent.SetEndPoint(target);
-        if (target.x > transform.position.x)
-        {
-            sagaieComponent.SetRotation(new Vector3(90, -(Mathf.Atan2(transform.position.x, target.z) * Mathf.Rad2Deg), 90));
-        }
-        else
-        {
-            sagaieComponent.SetRotation(new Vector3(90, -(Mathf.Atan2(transform.position.x, -target.z) * Mathf.Rad2Deg), 90));
-
-        }
 
         sagaie.SetActive(true);
     }
