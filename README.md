@@ -2,8 +2,10 @@
 
 <h1 align="center" style="font-weight: bold">Steppe by step</h1>
 
+<p align="center">
 <a href="https://akasuna.itch.io/steppe-by-step"><img src="https://static.itch.io/images/badge.svg" style="width:33%;padding-left:5px;"><a/>
-
+<p/>
+  
 **Steppe by step** is a video game made during the Etiolles Game Jam that took place in Evry, France from the 8 October to the 10 October 2022. This Game Jam was organised to celebrate the **50th anniversary** of the **[archeological excavation site of Etiolles](https://www.etiolles.fr/ma-ville/historique/site-archeologique-detiolles/)**, Essone. 
 
 During this **scientific Game Jam** no specific theme was provided. Rather, we were given acces to an impressive asset database made by researchers and archeologists and filled with field studies, topographic surveys, 3D models of excavated items from the prehistorical magdalenian period and pictures. The aim was to create a game with as little historical and scientifical discrepencies as possible.
