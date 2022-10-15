@@ -58,16 +58,17 @@ We've also placed some fish and berries as a mean for the hunter-gatherers to ge
 <img width="45%" alt="Capture d’écran 2022-10-10 095734" src="https://user-images.githubusercontent.com/41008899/194831027-c23e6c19-065d-4095-b3e0-c677570689fc.png">
 </div>
 
-<h2 align="center" style="font-weight: bold">:mammoth: Our team :mammoth:</h2>
+<h2 align="center" style="font-weight: bold"> Our team </h2>
 
-<img width="45%" alt="Capture d’écran 2022-10-10 095552" src="https://user-images.githubusercontent.com/41008899/195987694-bc3ab3df-9100-44f6-b6da-8c963dbf3acf.png">
-
-[Prométhée **"Akasuna"** Toneatti](https://www.linkedin.com/in/promethee-toneatti/) | Programmation
-[Henri **"Biscuit Prime"** Nomico](https://www.linkedin.com/in/nomico-henri-131241202/) | Programmation et 3D
-[Hugo **"Kohuro"** Carbiener](https://www.linkedin.com/in/hugo-carbiener/) | Programmation et Map
-[Lisa Veysset](https://www.linkedin.com/in/lisa-veysset-b67177253/) | Archéologie
-[Carole **"Ole"** Bauduin](https://www.linkedin.com/in/carole-bauduin-25a190227/) | Sound Design
-Antoine **"melo"** Travert | Musique et Intégration
-
+<div style="display:block;" align="center">
+<img alt="Capture d’écran 2022-10-10 095552" src="https://user-images.githubusercontent.com/41008899/195987694-bc3ab3df-9100-44f6-b6da-8c963dbf3acf.png">
+</div>
+  
+[Prométhée **"Akasuna"** Toneatti](https://www.linkedin.com/in/promethee-toneatti/) | Programmation  
+[Henri **"Biscuit Prime"** Nomico](https://www.linkedin.com/in/nomico-henri-131241202/) | Programmation et 3D  
+[Hugo **"Kohuro"** Carbiener](https://www.linkedin.com/in/hugo-carbiener/) | Programmation et Map  
+[Lisa Veysset](https://www.linkedin.com/in/lisa-veysset-b67177253/) | Archéologie  
+[Carole **"Ole"** Bauduin](https://www.linkedin.com/in/carole-bauduin-25a190227/) | Sound Design  
+Antoine **"melo"** Travert | Musique et Intégration  
 (from left to right)
 
