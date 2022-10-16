@@ -69,6 +69,6 @@ We've also placed some fish and berries as a mean for the hunter-gatherers to ge
 [Hugo **"Kohuro"** Carbiener](https://www.linkedin.com/in/hugo-carbiener/) | Programmation et Map  
 [Lisa Veysset](https://www.linkedin.com/in/lisa-veysset-b67177253/) | Archéologie  
 [Carole **"Ole"** Bauduin](https://www.linkedin.com/in/carole-bauduin-25a190227/) | Sound Design  
-Antoine **"melo"** Travert | Musique et Intégration  
+[Antoine **"melo"** Travert](https://www.instagram.com/nawtna_o/?hl=fr) | Musique et Intégration  
 (from left to right)
 
